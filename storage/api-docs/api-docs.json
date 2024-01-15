@@ -1,0 +1,192 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My Doc API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/": {},
+        "/api/clients": {
+            "get": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Список",
+                "operationId": "246561f97c3e49964909f3999db3f03c",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Создание",
+                "operationId": "3668bc04e2937d417189b1b76d72482b",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "lastname": {
+                                        "type": "string",
+                                        "example": "Алиев"
+                                    },
+                                    "firstname": {
+                                        "type": "string",
+                                        "example": "Вали"
+                                    },
+                                    "patronymic": {
+                                        "type": "string",
+                                        "example": "Валиевич"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "Худжанд, ул. И.Сомони 10а"
+                                    },
+                                    "phone": {
+                                        "type": "integer",
+                                        "example": 925640020
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "vali@mail.ru"
+                                    },
+                                    "status": {
+                                        "type": "boolean",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/api/clients/{client}": {
+            "get": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Список по ID",
+                "operationId": "ee82e794028f0333439125988c528355",
+                "parameters": [
+                    {
+                        "name": "client",
+                        "in": "path",
+                        "description": "ID клиент",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Удаление",
+                "operationId": "0b5afc2aacad595b4492c612998977e7",
+                "parameters": [
+                    {
+                        "name": "client",
+                        "in": "path",
+                        "description": "ID клиент",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "done"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Обновление",
+                "operationId": "0e34dfe4cb5ed48c99277498252e6ff4",
+                "parameters": [
+                    {
+                        "name": "client",
+                        "in": "path",
+                        "description": "ID клиент",
+                        "required": true,
+                        "example": 2
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "lastname": {
+                                        "type": "string",
+                                        "example": "Алиев"
+                                    },
+                                    "firstname": {
+                                        "type": "string",
+                                        "example": "Вали"
+                                    },
+                                    "patronymic": {
+                                        "type": "string",
+                                        "example": "Валиевич"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "Худжанд, ул. И.Сомони 10а"
+                                    },
+                                    "phone": {
+                                        "type": "integer",
+                                        "example": 925640020
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "vali@mail.ru"
+                                    },
+                                    "status": {
+                                        "type": "boolean",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        }
+    }
+}
