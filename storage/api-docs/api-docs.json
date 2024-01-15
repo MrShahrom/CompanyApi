@@ -187,6 +187,364 @@
                     }
                 }
             }
+        },
+        "/api/employees": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Список",
+                "operationId": "76915b004841c2ef5414f7d4eab1243e",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Создание",
+                "operationId": "1ac91d3e79872580c060ded21d68ec37",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "lastname": {
+                                        "type": "string",
+                                        "example": "Тахиров"
+                                    },
+                                    "firstname": {
+                                        "type": "string",
+                                        "example": "Далер"
+                                    },
+                                    "patronymic": {
+                                        "type": "string",
+                                        "example": "Рахимович"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "Худжанд, 20мкр"
+                                    },
+                                    "phone": {
+                                        "type": "integer",
+                                        "example": 923002000
+                                    },
+                                    "date_of_birthday": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2000-09-14"
+                                    },
+                                    "position": {
+                                        "type": "string",
+                                        "example": "Работник"
+                                    },
+                                    "status": {
+                                        "type": "boolean",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/api/employees/{employee}": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Список по ID",
+                "operationId": "8b29fc5dac0ba7532271df5cea20ac68",
+                "parameters": [
+                    {
+                        "name": "employee",
+                        "in": "path",
+                        "description": "ID клиент",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Удаление",
+                "operationId": "4d9cce6625a76e79bf927c9684fab546",
+                "parameters": [
+                    {
+                        "name": "employee",
+                        "in": "path",
+                        "description": "ID клиент",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "done"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Обновление",
+                "operationId": "8761703579b0b3fb05bf4ff9d2939078",
+                "parameters": [
+                    {
+                        "name": "employee",
+                        "in": "path",
+                        "description": "ID клиент",
+                        "required": true,
+                        "example": 2
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "lastname": {
+                                        "type": "string",
+                                        "example": "Тахиров"
+                                    },
+                                    "firstname": {
+                                        "type": "string",
+                                        "example": "Далер"
+                                    },
+                                    "patronymic": {
+                                        "type": "string",
+                                        "example": "Рахимович"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "Худжанд, 20мкр"
+                                    },
+                                    "phone": {
+                                        "type": "integer",
+                                        "example": 923002000
+                                    },
+                                    "date_of_birthday": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2000-09-14"
+                                    },
+                                    "position": {
+                                        "type": "string",
+                                        "example": "Работник"
+                                    },
+                                    "status": {
+                                        "type": "boolean",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/api/suppliers": {
+            "get": {
+                "tags": [
+                    "Supplier"
+                ],
+                "summary": "Список",
+                "operationId": "9e0700fc31eb240038c790aa63361acb",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Supplier"
+                ],
+                "summary": "Создание",
+                "operationId": "930aa95e942c98b1828174a19b0ea497",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "ЧДММ Алюминчи"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "Худжанд, 3мкр"
+                                    },
+                                    "phone": {
+                                        "type": "integer",
+                                        "example": 80800
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "alumin@mail.ru"
+                                    },
+                                    "status": {
+                                        "type": "boolean",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/api/suppliers/{supplier}": {
+            "get": {
+                "tags": [
+                    "Supplier"
+                ],
+                "summary": "Список по ID",
+                "operationId": "ed59705564f1f6ae5e171db9c34d8c99",
+                "parameters": [
+                    {
+                        "name": "supplier",
+                        "in": "path",
+                        "description": "ID клиент",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Supplier"
+                ],
+                "summary": "Удаление",
+                "operationId": "fc72d1b5afa59f4ec61c7ffd30e13e7a",
+                "parameters": [
+                    {
+                        "name": "supplier",
+                        "in": "path",
+                        "description": "ID клиент",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "done"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Supplier"
+                ],
+                "summary": "Обновление",
+                "operationId": "65e598c4e07dbe419369d58f1bd4c2ce",
+                "parameters": [
+                    {
+                        "name": "supplier",
+                        "in": "path",
+                        "description": "ID клиент",
+                        "required": true,
+                        "example": 2
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "ЧДММ Алюминчи"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "Худжанд, 3мкр"
+                                    },
+                                    "phone": {
+                                        "type": "integer",
+                                        "example": 80800
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "alumin@mail.ru"
+                                    },
+                                    "status": {
+                                        "type": "boolean",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
         }
     }
 }
