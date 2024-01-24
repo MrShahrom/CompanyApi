@@ -10,4 +10,13 @@ class Salary extends Model
     use HasFactory;
 
     protected $guarded = false;
+
+    protected $fillable = [
+        'id_employee', 'amount', 'status',
+    ];
+
+    public function employee(){
+        return $this->belongsTo(Employee::class, 'employee_id', 'id');
+    }
+
 }

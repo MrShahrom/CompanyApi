@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Supplier extends Model
+class Sklad extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name', 'address', 'phone', 'email', 'status',
+        'name', 'address', 'type', 'phone', 'status',
     ];
 }
