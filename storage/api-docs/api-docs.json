@@ -380,6 +380,172 @@
                 }
             }
         },
+        "/api/sklads": {
+            "get": {
+                "tags": [
+                    "Sklad"
+                ],
+                "summary": "Список",
+                "operationId": "b26f11a4a09ee28c180e78062aec165d",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Sklad"
+                ],
+                "summary": "Создание",
+                "operationId": "ef1edafc0ae6dd265266c81f6b5138b1",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Склад 1"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "Гафуров, 13а"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "example": "Готовые продукты"
+                                    },
+                                    "phone": {
+                                        "type": "integer",
+                                        "example": 4040
+                                    },
+                                    "status": {
+                                        "type": "boolean",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/api/sklads/{sklad}": {
+            "get": {
+                "tags": [
+                    "Sklad"
+                ],
+                "summary": "Список по ID",
+                "operationId": "e48ea8268a1ccbe00ee8a9c100ccc6cb",
+                "parameters": [
+                    {
+                        "name": "client",
+                        "in": "path",
+                        "description": "ID sklad",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Sklad"
+                ],
+                "summary": "Удаление",
+                "operationId": "34f522da0ac3a81417f0faa84ee0500e",
+                "parameters": [
+                    {
+                        "name": "sklad",
+                        "in": "path",
+                        "description": "ID sklad",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "done"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Sklad"
+                ],
+                "summary": "Обновление",
+                "operationId": "16bc8f06993d9ab061b722b38057f70f",
+                "parameters": [
+                    {
+                        "name": "sklad",
+                        "in": "path",
+                        "description": "ID sklad",
+                        "required": true,
+                        "example": 2
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Склад 1"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "Гафуров, 13а"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "example": "Готовые продукты"
+                                    },
+                                    "phone": {
+                                        "type": "integer",
+                                        "example": 4040
+                                    },
+                                    "status": {
+                                        "type": "boolean",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
         "/api/suppliers": {
             "get": {
                 "tags": [

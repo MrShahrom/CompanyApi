@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Sklad\StoreRequest;
+use App\Http\Requests\Sklad\UpdateRequest;
+use App\Http\Resources\SkladResource;
 use App\Models\Sklad;
 use Illuminate\Http\Request;
 
@@ -12,7 +15,8 @@ class SkladController extends Controller
      */
     public function index()
     {
-        //
+        $sklads = Sklad::all();
+        return SkladResource::collection($sklads);
     }
 
     /**
@@ -26,9 +30,12 @@ class SkladController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        $data = $request->validated();
+        $sklad = Sklad::create($data);
+
+        return SkladResource::make($sklad);
     }
 
     /**
@@ -36,7 +43,7 @@ class SkladController extends Controller
      */
     public function show(Sklad $sklad)
     {
-        //
+        return SkladResource::make($sklad);
     }
 
     /**
@@ -50,9 +57,12 @@ class SkladController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Sklad $sklad)
+    public function update(UpdateRequest $request, Sklad $sklad)
     {
-        //
+        $data = $request->validated();
+        $sklad->update($data);
+
+        return SkladResource::make($sklad);
     }
 
     /**
@@ -60,6 +70,9 @@ class SkladController extends Controller
      */
     public function destroy(Sklad $sklad)
     {
-        //
+        $sklad->delete();
+        return response()->json([
+            'message' => 'Deleted'
+        ]);
     }
 }
