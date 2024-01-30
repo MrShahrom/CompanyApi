@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_type_product');
-            $table->integer('id_raw_material');
+            $table->unsignedBigInteger('id_type_product');
+            $table->foreign('id_type_product')->references('id')->on('type_products')->onDelete('cascade');
+            $table->unsignedBigInteger('id_raw_material');
+            $table->foreign('id_raw_material')->references('id')->on('raw_materials')->onDelete('cascade');
             $table->string('unit');
             $table->integer('quantity');
             $table->string('description');

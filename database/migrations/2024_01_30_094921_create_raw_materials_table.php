@@ -18,7 +18,8 @@ return new class extends Migration
             $table->integer('quantity');
             $table->float('purchase_price');
             $table->string('units_of_measurement');
-            $table->integer('id_supplier');
+            $table->unsignedBigInteger('id_supplier');
+            $table->foreign('id_supplier')->references('id')->on('suppliers')->onDelete('cascade');
             $table->string('description');
             $table->boolean('status');
             $table->timestamps();

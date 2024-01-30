@@ -15,8 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->float('selling_price');
-            $table->integer('id_sklad');
-            $table->integer('id_type_product');
+            $table->unsignedBigInteger('id_sklad');
+            $table->foreign('id_sklad')->references('id')->on('sklads')->onDelete('cascade');
+            $table->unsignedBigInteger('id_type_product');
+            $table->foreign('id_type_product')->references('id')->on('type_products')->onDelete('cascade');
+            $table->integer('quantity');
             $table->boolean('status');
             $table->timestamps();
         });

@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_client');
-            $table->integer('id_product');
+            $table->unsignedBigInteger('id_client');
+            $table->foreign('id_client')->references('id')->on('clients')->onDelete('cascade');
+            $table->unsignedBigInteger('id_product');
+            $table->foreign('id_product')->references('id')->on('products')->onDelete('cascade');
             $table->dateTime('date_of_shipment');
             $table->float('price_per_unit');
             $table->float('total_amount');
