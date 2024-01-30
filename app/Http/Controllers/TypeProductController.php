@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TypeProduct\StoreRequest;
+use App\Http\Requests\TypeProduct\UpdateRequest;
+use App\Http\Resources\TypeProductResource;
 use App\Models\TypeProduct;
 use Illuminate\Http\Request;
 
@@ -12,7 +15,8 @@ class TypeProductController extends Controller
      */
     public function index()
     {
-        //
+        $typeproducts = TypeProduct::all();
+        return TypeProductResource::collection($typeproducts);
     }
 
     /**
@@ -26,18 +30,28 @@ class TypeProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        $data = $request->validated();
+        $typeproduct = TypeProduct::create($data);
+
+        return TypeProductResource::make($typeproduct);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(TypeProduct $typeProduct)
+    public function show($id)
     {
-        //
+        $typeProduct = TypeProduct::find($id);
+
+        if (!$typeProduct) {
+            return response()->json(['message' => 'Тип продукта не найден'], 404);
+        }
+
+        return TypeProductResource::make($typeProduct);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -50,16 +64,24 @@ class TypeProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TypeProduct $typeProduct)
+    public function update(UpdateRequest $request, $id)
     {
-        //
+        $typeProduct = TypeProduct::find($id);
+        $data = $request->validated();
+        $typeProduct->update($data);
+
+        return TypeProductResource::make($typeProduct);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TypeProduct $typeProduct)
+    public function destroy($id)
     {
-        //
+        $typeProduct = TypeProduct::find($id);
+        $typeProduct->delete();
+        return response()->json([
+            'message' => 'Deleted'
+        ]);
     }
 }

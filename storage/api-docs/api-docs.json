@@ -711,6 +711,164 @@
                     }
                 }
             }
+        },
+        "/api/typeproducts": {
+            "get": {
+                "tags": [
+                    "TypeProduct"
+                ],
+                "summary": "Список",
+                "operationId": "dab2a151b40dec6d4a65caa577003292",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "TypeProduct"
+                ],
+                "summary": "Создание",
+                "operationId": "af9395d6dbcb00d7d790fe943ef82566",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "product_name": {
+                                        "type": "string",
+                                        "example": "Дег 3л"
+                                    },
+                                    "quantity_produced": {
+                                        "type": "integer",
+                                        "example": 100
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Описание"
+                                    },
+                                    "status": {
+                                        "type": "boolean",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/api/typeproducts/{typeproduct}": {
+            "get": {
+                "tags": [
+                    "TypeProduct"
+                ],
+                "summary": "Список по ID",
+                "operationId": "902ba22d74d855a9fab736b0df3b5f51",
+                "parameters": [
+                    {
+                        "name": "typeproduct",
+                        "in": "path",
+                        "description": "ID тип продукта",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "TypeProduct"
+                ],
+                "summary": "Удаление",
+                "operationId": "23bc17305f023014daf3580a12861875",
+                "parameters": [
+                    {
+                        "name": "typeproduct",
+                        "in": "path",
+                        "description": "ID тип продукта",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "done"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "TypeProduct"
+                ],
+                "summary": "Обновление",
+                "operationId": "dc5ccc2f8a4866b7b116214d6b5a6268",
+                "parameters": [
+                    {
+                        "name": "typeproduct",
+                        "in": "path",
+                        "description": "ID тип продукта",
+                        "required": true,
+                        "example": 2
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "product_name": {
+                                        "type": "string",
+                                        "example": "Дег 3л"
+                                    },
+                                    "quantity_produced": {
+                                        "type": "integer",
+                                        "example": 100
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Описание"
+                                    },
+                                    "status": {
+                                        "type": "boolean",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
         }
     }
 }
