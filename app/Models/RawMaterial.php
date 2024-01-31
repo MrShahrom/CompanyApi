@@ -13,4 +13,8 @@ class RawMaterial extends Model
         'name', 'unit', 'quantity', 'purchase_price', 'units_of_measurement', 'id_supplier', 'description', 'status',
     ];
 
+    public function supplier(){
+        return $this->belongsTo(Supplier::class, 'id_supplier', 'id');
+    }
+
 }

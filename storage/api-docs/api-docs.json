@@ -380,6 +380,202 @@
                 }
             }
         },
+        "/api/rawmaterials": {
+            "get": {
+                "tags": [
+                    "RawMaterial"
+                ],
+                "summary": "Список",
+                "operationId": "3375e840b5dbd458d776de0b9014731a",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "RawMaterial"
+                ],
+                "summary": "Создание",
+                "operationId": "1f339bce2330c08f54698106bf0cbb09",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Алюминия"
+                                    },
+                                    "unit": {
+                                        "type": "string",
+                                        "example": "кг"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "example": 6000
+                                    },
+                                    "purchase_price": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 96000
+                                    },
+                                    "units_of_measurement": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 16
+                                    },
+                                    "id_supplier": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Описание"
+                                    },
+                                    "status": {
+                                        "type": "boolean",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/api/rawmaterials/{raWmaterial}": {
+            "get": {
+                "tags": [
+                    "RawMaterial"
+                ],
+                "summary": "Список по ID",
+                "operationId": "d82d11ab4cbea0793f5be40af207275e",
+                "parameters": [
+                    {
+                        "name": "raWmaterial",
+                        "in": "path",
+                        "description": "ID сырье",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/api/rawmaterials/{rawmaterial}": {
+            "delete": {
+                "tags": [
+                    "RawMaterial"
+                ],
+                "summary": "Удаление",
+                "operationId": "db6b64b024eed57e3aebb1c95b20527f",
+                "parameters": [
+                    {
+                        "name": "client",
+                        "in": "path",
+                        "description": "ID сырье",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "done"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "RawMaterial"
+                ],
+                "summary": "Обновление",
+                "operationId": "0f5bf7a401debd6aaf0ea69e58306d82",
+                "parameters": [
+                    {
+                        "name": "rawMaterial",
+                        "in": "path",
+                        "description": "ID сырье",
+                        "required": true,
+                        "example": 2
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Алюминия"
+                                    },
+                                    "unit": {
+                                        "type": "string",
+                                        "example": "кг"
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "example": 6000
+                                    },
+                                    "purchase_price": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 96000
+                                    },
+                                    "units_of_measurement": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 16
+                                    },
+                                    "id_supplier": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Описание"
+                                    },
+                                    "status": {
+                                        "type": "boolean",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
         "/api/sklads": {
             "get": {
                 "tags": [

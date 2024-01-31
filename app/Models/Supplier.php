@@ -12,4 +12,8 @@ class Supplier extends Model
     protected $fillable = [
         'name', 'address', 'phone', 'email', 'status',
     ];
+
+    public function rawMaterial(){
+        return $this->hasMany(RawMaterial::class, 'id_supplier', 'id');
+    }
 }
