@@ -12,4 +12,8 @@ class TypeProduct extends Model
     protected $fillable = [
         'product_name', 'quantity_produced', 'description', 'status',
     ];
+
+    public function recipe(){
+        return $this->hasMany(Recipe::class, 'id', 'id_type_product');
+    }
 }

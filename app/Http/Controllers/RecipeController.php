@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Recipe\StoreRequest;
+use App\Http\Requests\Recipe\UpdateRequest;
+use App\Http\Resources\RecipeResource;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
 
@@ -12,7 +15,8 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        //
+        $recipe = Recipe::all();
+        return RecipeResource::collection($recipe);
     }
 
     /**
@@ -26,17 +30,26 @@ class RecipeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        $data = $request->validated();
+        $recipe = Recipe::create($data);
+
+        return RecipeResource::make($recipe);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Recipe $recipe)
+    public function show($id)
     {
-        //
+        $recipe = Recipe::find($id);
+
+        if (!$recipe) {
+            return response()->json(['message' => $id], 404);
+        } else {
+            return RecipeResource::make($recipe);
+        }
     }
 
     /**
@@ -50,9 +63,12 @@ class RecipeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Recipe $recipe)
+    public function update(UpdateRequest $request, Recipe $recipe)
     {
-        //
+        $data = $request->validated();
+        $recipe->update($data);
+
+        return RecipeResource::make($recipe);
     }
 
     /**
@@ -60,6 +76,9 @@ class RecipeController extends Controller
      */
     public function destroy(Recipe $recipe)
     {
-        //
+        $recipe->delete();
+        return response()->json([
+            'message' => 'Deleted'
+        ]);
     }
 }

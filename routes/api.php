@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RawMaterialController;
+use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\SkladController;
 use App\Http\Controllers\TypeProductController;
@@ -30,4 +31,5 @@ Route::resource('suppliers', SupplierController::class);
 Route::resource('sklads', SkladController::class);
 Route::resource('typeproducts', TypeProductController::class);
 Route::resource('rawmaterials', RawMaterialController::class);
+Route::resource('recipes', RecipeController::class);
 
