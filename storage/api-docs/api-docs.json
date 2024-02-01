@@ -451,16 +451,16 @@
                 }
             }
         },
-        "/api/rawmaterials/{raWmaterial}": {
+        "/api/rawmaterials/{rawmaterial}": {
             "get": {
                 "tags": [
                     "RawMaterial"
                 ],
                 "summary": "Список по ID",
-                "operationId": "d82d11ab4cbea0793f5be40af207275e",
+                "operationId": "0ac18f762c5f3a0c653ac3f57404f82c",
                 "parameters": [
                     {
-                        "name": "raWmaterial",
+                        "name": "rawmaterial",
                         "in": "path",
                         "description": "ID сырье",
                         "required": true,
@@ -472,9 +472,7 @@
                         "description": "Ok"
                     }
                 }
-            }
-        },
-        "/api/rawmaterials/{rawmaterial}": {
+            },
             "delete": {
                 "tags": [
                     "RawMaterial"
@@ -483,7 +481,7 @@
                 "operationId": "db6b64b024eed57e3aebb1c95b20527f",
                 "parameters": [
                     {
-                        "name": "client",
+                        "name": "rawmaterial",
                         "in": "path",
                         "description": "ID сырье",
                         "required": true,
@@ -517,7 +515,7 @@
                 "operationId": "0f5bf7a401debd6aaf0ea69e58306d82",
                 "parameters": [
                     {
-                        "name": "rawMaterial",
+                        "name": "rawmaterial",
                         "in": "path",
                         "description": "ID сырье",
                         "required": true,

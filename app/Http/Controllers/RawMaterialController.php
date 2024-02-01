@@ -43,9 +43,6 @@ class RawMaterialController extends Controller
      */
     public function show($id)
     {
-        print_r($id);
-        die();
-        
         $rawMaterial = RawMaterial::find($id);
 
         if (!$rawMaterial) {

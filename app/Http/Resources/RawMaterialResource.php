@@ -21,7 +21,7 @@ class RawMaterialResource extends JsonResource
             'quantity' => $this->quantity,
             'purchase_price' => $this->purchase_price,
             'units_of_measurement' => $this->units_of_measurement,
-            'id_supplier' => $this->id_supplier,
+            'id_supplier' => $this->supplier,
             'description' => $this->description,
             'status' => $this->status,
             'created_at' => $this->created_at,
