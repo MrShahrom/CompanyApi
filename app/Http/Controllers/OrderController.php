@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Order\StoreRequest;
+use App\Http\Requests\Order\UpdateRequest;
+use App\Http\Resources\OrderResource;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -11,7 +15,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::all();
+        return OrderResource::collection($orders);
     }
 
     /**
@@ -25,17 +30,26 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        $data = $request->validated();
+        $order = Order::create($data);
+
+        return OrderResource::make($order);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $order = Order::find($id);
+
+        if (!$order) {
+            return response()->json(['message' => $id], 404);
+        } else {
+            return OrderResource::make($order);
+        }
     }
 
     /**
@@ -49,16 +63,22 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateRequest $request, Order $order)
     {
-        //
+        $data = $request->validated();
+        $order->update($data);
+
+        return OrderResource::make($order);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Order $order)
     {
-        //
+        $order->delete();
+        return response()->json([
+            'message' => 'Deleted'
+        ]);
     }
 }

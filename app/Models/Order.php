@@ -14,11 +14,11 @@ class Order extends Model
     ];
 
     public function client(){
-        return $this->belongsTo(Client::class, 'client_id', 'id');
+        return $this->belongsTo(Client::class, 'id_client', 'id');
     }
 
     public function product(){
-        return $this->belongsTo(Product::class, 'product_id', 'id');
+        return $this->belongsTo(Product::class, 'id_product', 'id');
     }
 
 }

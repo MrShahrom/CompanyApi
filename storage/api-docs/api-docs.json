@@ -380,6 +380,186 @@
                 }
             }
         },
+        "/api/orders": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Список",
+                "operationId": "d4530ea61a780e4f5951a594e93c1e69",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Создание",
+                "operationId": "e1c8c4dbcb1f60187195df4791c9e8ed",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id_client": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "id_product": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "date_of_shipment": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "2024-02-02 12:25:48"
+                                    },
+                                    "price_per_unit": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 500
+                                    },
+                                    "total_amount": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 8000
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "example": 16
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/api/orders/{order}": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Список по ID",
+                "operationId": "b3bb39fece88584522cbb6625ced1699",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "description": "ID order",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Удаление",
+                "operationId": "da3af50e368f6e976113f2c1c24a9472",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "description": "ID order",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "done"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Обновление",
+                "operationId": "cb256aeb26daf970c9dde71e94033202",
+                "parameters": [
+                    {
+                        "name": "order",
+                        "in": "path",
+                        "description": "ID order",
+                        "required": true,
+                        "example": 2
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id_client": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "id_product": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "date_of_shipment": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "2024-02-02 12:25:48"
+                                    },
+                                    "price_per_unit": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 500
+                                    },
+                                    "total_amount": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 8000
+                                    },
+                                    "quantity": {
+                                        "type": "integer",
+                                        "example": 16
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
         "/api/products": {
             "get": {
                 "tags": [
