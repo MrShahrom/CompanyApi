@@ -560,6 +560,44 @@
                 }
             }
         },
+        "/api/orders/filterByDate": {
+            "post": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Список заказов с фильтрацией по дате отгрузки",
+                "operationId": "4e7324a281d518e599bd425d45fd4bc3",
+                "parameters": [
+                    {
+                        "name": "from_date",
+                        "in": "query",
+                        "description": "Дата начала периода",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2024-01-01"
+                        }
+                    },
+                    {
+                        "name": "to_date",
+                        "in": "query",
+                        "description": "Дата конца периода",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2024-12-31"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Список заказов, удовлетворяющих условиям фильтрации"
+                    }
+                }
+            }
+        },
         "/api/products": {
             "get": {
                 "tags": [

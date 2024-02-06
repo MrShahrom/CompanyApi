@@ -38,3 +38,7 @@ Route::resource('recipes', RecipeController::class);
 Route::resource('products', ProductController::class);
 Route::resource('orders', OrderController::class);
 Route::resource('salaries', SalaryController::class);
+
+//Фильтр по дату
+Route::post('/orders/filterByDate', [OrderController::class, 'filterByDate']);
+

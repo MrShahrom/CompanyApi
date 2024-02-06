@@ -58,6 +58,38 @@ use App\Http\Controllers\Controller;
  *     ),
  * ),
  *
+ * @OA\Post(
+ *     path="/api/orders/filterByDate",
+ *     summary="Список заказов с фильтрацией по дате отгрузки",
+ *     tags={"Order"},
+ *     @OA\Parameter(
+ *         name="from_date",
+ *         in="query",
+ *         required=true,
+ *         description="Дата начала периода",
+ *         @OA\Schema(
+ *             type="string",
+ *             format="date",
+ *             example="2024-01-01"
+ *         )
+ *     ),
+ *     @OA\Parameter(
+ *         name="to_date",
+ *         in="query",
+ *         required=true,
+ *         description="Дата конца периода",
+ *         @OA\Schema(
+ *             type="string",
+ *             format="date",
+ *             example="2024-12-31"
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=200,
+ *         description="Список заказов, удовлетворяющих условиям фильтрации"
+ *     ),
+ * )
+ *
  * @OA\Patch(
  *     path="/api/orders/{order}",
  *     summary="Обновление",

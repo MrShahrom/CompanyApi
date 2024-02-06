@@ -20,6 +20,22 @@ class OrderController extends Controller
     }
 
     /**
+     * Filter orders by shipment date.
+     */
+    public function filterByDate(Request $request)
+    {
+        $request->validate([
+            'from_date' => 'required|date',
+            'to_date' => 'required|date|after_or_equal:from_date',
+        ]);
+        $fromDate = $request->input('from_date');
+        $toDate = $request->input('to_date');
+        $filteredOrders = Order::whereBetween('date_of_shipment', [$fromDate, $toDate])->get();
+
+        return OrderResource::collection($filteredOrders);
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()
