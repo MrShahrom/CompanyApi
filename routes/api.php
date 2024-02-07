@@ -42,3 +42,6 @@ Route::resource('salaries', SalaryController::class);
 //Фильтр по дату
 Route::post('/orders/filterByDate', [OrderController::class, 'filterByDate']);
 
+//Фильтр по названия поставщика
+Route::post('/suppliers/filterByname', [SupplierController::class, 'filterByname']);
+

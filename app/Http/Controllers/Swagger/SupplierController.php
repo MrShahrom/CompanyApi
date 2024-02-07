@@ -57,6 +57,26 @@ use App\Http\Controllers\Controller;
  *     ),
  * ),
  *
+ * @OA\Post(
+ *     path="/api/suppliers/filterByname",
+ *     summary="Список поставщиков с фильтрацией по название",
+ *     tags={"Supplier"},
+ *     @OA\Parameter(
+ *         name="name",
+ *         in="query",
+ *         required=true,
+ *         description="Название",
+ *         @OA\Schema(
+ *             type="string",
+ *             example="ЧДММ"
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=200,
+ *         description="Список заказов, удовлетворяющих условиям фильтрации"
+ *     ),
+ * )
+ *
  * @OA\Patch(
  *     path="/api/suppliers/{supplier}",
  *     summary="Обновление",

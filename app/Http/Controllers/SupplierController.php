@@ -20,6 +20,21 @@ class SupplierController extends Controller
     }
 
     /**
+     * Filter suppliers by name.
+     */
+    public function filterByname(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string',
+        ]);
+
+        $name = $request->input('name');
+        $filteredsuppliers = Supplier::where('name', 'LIKE', $name . '%')->get();
+
+        return SupplierResource::collection($filteredsuppliers);
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()

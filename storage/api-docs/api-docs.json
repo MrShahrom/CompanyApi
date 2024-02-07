@@ -1618,6 +1618,32 @@
                 }
             }
         },
+        "/api/suppliers/filterByname": {
+            "post": {
+                "tags": [
+                    "Supplier"
+                ],
+                "summary": "Список поставщиков с фильтрацией по название",
+                "operationId": "3e419ebb8ae818ae13ad1e86bfb3b19d",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Название",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "ЧДММ"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Список заказов, удовлетворяющих условиям фильтрации"
+                    }
+                }
+            }
+        },
         "/api/typeproducts": {
             "get": {
                 "tags": [
