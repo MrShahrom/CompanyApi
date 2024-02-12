@@ -45,3 +45,6 @@ Route::post('/orders/filterByDate', [OrderController::class, 'filterByDate']);
 //Фильтр по названия поставщика
 Route::post('/suppliers/filterByname', [SupplierController::class, 'filterByname']);
 
+//Фильтр по единицы измерение
+Route::post('/orders/filterByunits', [OrderController::class, 'filterByunits']);
+

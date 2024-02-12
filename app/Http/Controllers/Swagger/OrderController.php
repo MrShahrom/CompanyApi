@@ -91,6 +91,26 @@ use App\Http\Controllers\Controller;
  *     ),
  * )
  *
+ * * @OA\Post(
+ *     path="/api/orders/filterByunits",
+ *     summary="Список заказов с фильтрацией по единица измерения",
+ *     tags={"Order"},
+ *     @OA\Parameter(
+ *         name="filterByunits",
+ *         in="query",
+ *         required=true,
+ *         description="Единица измерения",
+ *         @OA\Schema(
+ *             type="string",
+ *             example="Сомони"
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=200,
+ *         description="Список заказов, удовлетворяющих условиям фильтрации"
+ *     ),
+ * )
+ *
  * @OA\Patch(
  *     path="/api/orders/{order}",
  *     summary="Обновление",

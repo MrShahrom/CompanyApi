@@ -36,6 +36,21 @@ class OrderController extends Controller
     }
 
     /**
+     * Filter orders by units_of_measurement.
+     */
+    public function filterByunits(Request $request)
+    {
+        $request->validate([
+            'units_of_measurement' => 'required|string',
+        ]);
+
+        $units_of_measurement = $request->input('units_of_measurement');
+        $filteredorders = Order::where('units_of_measurement', 'LIKE', $units_of_measurement . '%')->get();
+
+        return OrderResource::collection($filteredorders);
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()
