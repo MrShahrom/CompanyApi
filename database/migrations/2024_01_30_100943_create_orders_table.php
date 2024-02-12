@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_product');
             $table->foreign('id_product')->references('id')->on('products')->onDelete('cascade');
             $table->dateTime('date_of_shipment');
+            $table->string('units_of_measurement');
             $table->float('price_per_unit');
             $table->float('total_amount');
             $table->integer('quantity');
