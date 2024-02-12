@@ -417,6 +417,10 @@
                                         "format": "date-time",
                                         "example": "2024-02-02 12:25:48"
                                     },
+                                    "units_of_measurement": {
+                                        "type": "string",
+                                        "example": "сомони"
+                                    },
                                     "price_per_unit": {
                                         "type": "number",
                                         "format": "float",
@@ -532,6 +536,10 @@
                                         "type": "string",
                                         "format": "date-time",
                                         "example": "2024-02-02 12:25:48"
+                                    },
+                                    "units_of_measurement": {
+                                        "type": "string",
+                                        "example": "сомони"
                                     },
                                     "price_per_unit": {
                                         "type": "number",

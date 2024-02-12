@@ -25,6 +25,7 @@ class StoreRequest extends FormRequest
             'id_client' => 'required|integer',
             'id_product' => 'required|integer',
             'date_of_shipment' => 'required|date_format:Y-m-d H:i:s',
+            'units_of_measurement' => 'required|string',
             'price_per_unit' => ['required', 'numeric', 'regex:/^\d+(\.\d{1,4})?$/'],
             'total_amount' => ['required', 'numeric', 'regex:/^\d+(\.\d{1,4})?$/'],
             'quantity' => 'required|integer',
