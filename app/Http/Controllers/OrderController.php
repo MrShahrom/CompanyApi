@@ -32,6 +32,10 @@ class OrderController extends Controller
         $toDate = $request->input('to_date');
         $filteredOrders = Order::whereBetween('date_of_shipment', [$fromDate, $toDate])->get();
 
+        if ($filteredOrders->isEmpty()) {
+            return response()->json(['message' => 'Заказы с такими периодами не найден']);
+        }
+
         return OrderResource::collection($filteredOrders);
     }
 
@@ -46,6 +50,10 @@ class OrderController extends Controller
 
         $units_of_measurement = $request->input('units_of_measurement');
         $filteredorders = Order::where('units_of_measurement', 'LIKE', $units_of_measurement . '%')->get();
+
+        if ($filteredorders->isEmpty()) {
+            return response()->json(['message' => 'Единицы измерение с таким названием не найден']);
+        }
 
         return OrderResource::collection($filteredorders);
     }
@@ -62,10 +70,16 @@ class OrderController extends Controller
         $productName = $request->input('product_name');
 
         $filteredOrders = Order::whereHas('product.type_product', function ($query) use ($productName) {
-            $query->where('product_name', 'LIKE', $productName. '%');
+            $query->where('product_name', 'LIKE', $productName . '%');
         })->get();
+
+        if ($filteredOrders->isEmpty()) {
+            return response()->json(['message' => 'Продукт с таким названием не найден']);
+        }
+
         return OrderResource::collection($filteredOrders);
     }
+
 
 
     /**

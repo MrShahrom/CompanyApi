@@ -96,7 +96,7 @@ use App\Http\Controllers\Controller;
  *     summary="Список заказов с фильтрацией по единица измерения",
  *     tags={"Order"},
  *     @OA\Parameter(
- *         name="filterByunits",
+ *         name="units_of_measurement",
  *         in="query",
  *         required=true,
  *         description="Единица измерения",

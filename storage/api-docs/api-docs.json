@@ -615,7 +615,7 @@
                 "operationId": "61dd8274013cef4c4bb9f1a381a2f931",
                 "parameters": [
                     {
-                        "name": "filterByunits",
+                        "name": "units_of_measurement",
                         "in": "query",
                         "description": "Единица измерения",
                         "required": true,
