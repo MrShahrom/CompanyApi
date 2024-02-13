@@ -91,7 +91,7 @@ use App\Http\Controllers\Controller;
  *     ),
  * )
  *
- * * @OA\Post(
+ * @OA\Post(
  *     path="/api/orders/filterByunits",
  *     summary="Список заказов с фильтрацией по единица измерения",
  *     tags={"Order"},
@@ -103,6 +103,26 @@ use App\Http\Controllers\Controller;
  *         @OA\Schema(
  *             type="string",
  *             example="Сомони"
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=200,
+ *         description="Список заказов, удовлетворяющих условиям фильтрации"
+ *     ),
+ * )
+ *
+ * @OA\Post(
+ *     path="/api/orders/filterBynameproduct",
+ *     summary="Список заказов с фильтрацией по название продукты",
+ *     tags={"Order"},
+ *     @OA\Parameter(
+ *         name="filterBynameproduct",
+ *         in="query",
+ *         required=true,
+ *         description="Название продукты",
+ *         @OA\Schema(
+ *             type="string",
+ *             example="Дег 3л"
  *         )
  *     ),
  *     @OA\Response(

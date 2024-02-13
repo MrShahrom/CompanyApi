@@ -51,6 +51,24 @@ class OrderController extends Controller
     }
 
     /**
+     * Filter orders by productname.
+     */
+    public function filterBynameproduct(Request $request)
+    {
+        $request->validate([
+            'product_name' => 'required|string',
+        ]);
+
+        $productName = $request->input('product_name');
+
+        $filteredOrders = Order::whereHas('product.type_product', function ($query) use ($productName) {
+            $query->where('product_name', 'LIKE', $productName. '%');
+        })->get();
+        return OrderResource::collection($filteredOrders);
+    }
+
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()

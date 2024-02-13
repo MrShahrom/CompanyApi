@@ -615,13 +615,39 @@
                 "operationId": "61dd8274013cef4c4bb9f1a381a2f931",
                 "parameters": [
                     {
-                        "name": "units_of_measurement",
+                        "name": "filterByunits",
                         "in": "query",
                         "description": "Единица измерения",
                         "required": true,
                         "schema": {
                             "type": "string",
                             "example": "Сомони"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Список заказов, удовлетворяющих условиям фильтрации"
+                    }
+                }
+            }
+        },
+        "/api/orders/filterBynameproduct": {
+            "post": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Список заказов с фильтрацией по название продукты",
+                "operationId": "a76272568376cb018ca0085ce701048e",
+                "parameters": [
+                    {
+                        "name": "filterBynameproduct",
+                        "in": "query",
+                        "description": "Название продукты",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Дег 3л"
                         }
                     }
                 ],

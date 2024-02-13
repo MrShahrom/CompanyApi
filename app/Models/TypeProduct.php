@@ -13,7 +13,7 @@ class TypeProduct extends Model
         'product_name', 'quantity_produced', 'description', 'status',
     ];
 
-    public function recipe(){
-        return $this->hasMany(Recipe::class, 'id', 'id_type_product');
-    }
+    // public function recipe(){
+    //     return $this->hasMany(Recipe::class, 'id', 'id_type_product');
+    // }
 }
