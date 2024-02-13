@@ -641,7 +641,7 @@
                 "operationId": "a76272568376cb018ca0085ce701048e",
                 "parameters": [
                     {
-                        "name": "filterBynameproduct",
+                        "name": "product_name",
                         "in": "query",
                         "description": "Название продукты",
                         "required": true,

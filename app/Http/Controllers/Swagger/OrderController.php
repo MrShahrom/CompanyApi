@@ -116,7 +116,7 @@ use App\Http\Controllers\Controller;
  *     summary="Список заказов с фильтрацией по название продукты",
  *     tags={"Order"},
  *     @OA\Parameter(
- *         name="filterBynameproduct",
+ *         name="product_name",
  *         in="query",
  *         required=true,
  *         description="Название продукты",
