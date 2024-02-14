@@ -188,6 +188,168 @@
                 }
             }
         },
+        "/api/costs": {
+            "get": {
+                "tags": [
+                    "Cost"
+                ],
+                "summary": "Список",
+                "operationId": "9fe8fc8dd9865f148473fa8a8c505dc8",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Cost"
+                ],
+                "summary": "Создание",
+                "operationId": "f53407e0b64237f3fb8648f303cf7d75",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id_product": {
+                                        "type": "string",
+                                        "example": 1
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Описание"
+                                    },
+                                    "amount": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 750
+                                    },
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "2024-02-14 15:00:15"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/api/costs/{cost}": {
+            "get": {
+                "tags": [
+                    "Cost"
+                ],
+                "summary": "Список по ID",
+                "operationId": "80f8d5df8b8d7580c1866722bbb2033f",
+                "parameters": [
+                    {
+                        "name": "cost",
+                        "in": "path",
+                        "description": "ID cost",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Cost"
+                ],
+                "summary": "Удаление",
+                "operationId": "7c62f094cc7f7ce3e57c7492264547b8",
+                "parameters": [
+                    {
+                        "name": "cost",
+                        "in": "path",
+                        "description": "ID cost",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "done"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Cost"
+                ],
+                "summary": "Обновление",
+                "operationId": "e762ef97d2ea6d81edf081f847e58685",
+                "parameters": [
+                    {
+                        "name": "cost",
+                        "in": "path",
+                        "description": "ID cost",
+                        "required": true,
+                        "example": 2
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id_product": {
+                                        "type": "string",
+                                        "example": 1
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Описание"
+                                    },
+                                    "amount": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 900
+                                    },
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "2024-02-14 15:00:15"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
         "/api/employees": {
             "get": {
                 "tags": [
@@ -884,6 +1046,11 @@
                                         "type": "integer",
                                         "example": 1
                                     },
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "2024-02-14 15:00:15"
+                                    },
                                     "description": {
                                         "type": "string",
                                         "example": "Описание"
@@ -1006,6 +1173,11 @@
                                     "id_supplier": {
                                         "type": "integer",
                                         "example": 1
+                                    },
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "2024-02-14 15:00:15"
                                     },
                                     "description": {
                                         "type": "string",

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CostController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
@@ -38,6 +39,7 @@ Route::resource('recipes', RecipeController::class);
 Route::resource('products', ProductController::class);
 Route::resource('orders', OrderController::class);
 Route::resource('salaries', SalaryController::class);
+Route::resource('costs', CostController::class);
 
 //Фильтр по дату
 Route::post('/orders/filterByDate', [OrderController::class, 'filterByDate']);

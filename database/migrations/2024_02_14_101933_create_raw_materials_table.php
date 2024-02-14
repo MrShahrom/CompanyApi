@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_supplier');
             $table->foreign('id_supplier')->references('id')->on('suppliers')->onDelete('cascade');
             $table->string('description');
+            $table->date('date');
             $table->boolean('status');
             $table->timestamps();
         });

@@ -18,6 +18,7 @@ use App\Http\Controllers\Controller;
  *             @OA\Property(property="purchase_price", type="float", example=96000.00),
  *             @OA\Property(property="units_of_measurement", type="float", example=16),
  *             @OA\Property(property="id_supplier", type="integer", example= 1),
+ *             @OA\Property(property="date", type="datetime", example= "2024-02-14 15:00:15"),
  *             @OA\Property(property="description", type="string", example="Описание"),
  *             @OA\Property(property="status", type="boolean", example=1),
  *         )
@@ -79,6 +80,7 @@ use App\Http\Controllers\Controller;
  *             @OA\Property(property="purchase_price", type="float", example=96000.00),
  *             @OA\Property(property="units_of_measurement", type="float", example=16),
  *             @OA\Property(property="id_supplier", type="integer", example= 1),
+ *             @OA\Property(property="date", type="datetime", example= "2024-02-14 15:00:15"),
  *             @OA\Property(property="description", type="string", example="Описание"),
  *             @OA\Property(property="status", type="boolean", example=1),
  *         )

@@ -28,6 +28,7 @@ class StoreRequest extends FormRequest
             'purchase_price' => ['required', 'numeric', 'regex:/^\d+(\.\d{1,2,3,4})?$/'],
             'units_of_measurement' => ['required', 'integer'],
             'id_supplier' => ['required', 'integer'],
+            'date' => ['required', 'date_format:Y-m-d H:i:s'],
             'description' => ['required', 'string'],
             'status' => ['required', 'boolean'],
         ];
