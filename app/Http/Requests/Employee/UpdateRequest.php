@@ -27,6 +27,7 @@ class UpdateRequest extends FormRequest
             'patronymic' => 'required|string',
             'address' => 'required|string',
             'phone' => 'required|integer',
+            'salary' => ['required', 'numeric', 'regex:/^\d+(\.\d{1,2,3,4})?$/'],
             'date_of_birthday' => 'required|date',
             'position' => 'required|string',
             'status' => 'required|boolean',

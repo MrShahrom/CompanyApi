@@ -394,6 +394,11 @@
                                         "type": "integer",
                                         "example": 923002000
                                     },
+                                    "salary": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 5000
+                                    },
                                     "date_of_birthday": {
                                         "type": "string",
                                         "format": "date",
@@ -515,6 +520,11 @@
                                     "phone": {
                                         "type": "integer",
                                         "example": 923002000
+                                    },
+                                    "salary": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 5000
                                     },
                                     "date_of_birthday": {
                                         "type": "string",

@@ -27,6 +27,7 @@ class StoreRequest extends FormRequest
             'patronymic' => 'required|string',
             'address' => 'required|string',
             'phone' => 'required|integer',
+            'salary' => ['required', 'numeric', 'regex:/^\d+(\.\d{1,2,3,4})?$/'],
             'date_of_birthday' => 'required|date_format:Y-m-d',
             'position' => 'required|string',
             'status' => 'required|boolean',
