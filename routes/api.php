@@ -53,3 +53,6 @@ Route::post('/orders/filterByunits', [OrderController::class, 'filterByunits']);
 //Фильтр по название продукта
 Route::post('/orders/filterBynameproduct', [OrderController::class, 'filterBynameproduct']);
 
+//Калкульятор рассчета
+Route::get('/products/{productId}/calculate-cost', [CostController::class, 'calculateCost']);
+
