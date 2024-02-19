@@ -12,8 +12,4 @@ class Employee extends Model
     protected $fillable = [
         'lastname', 'firstname', 'patronymic', 'address', 'phone', 'salary', 'date_of_birthday', 'position', 'status',
     ];
-
-    public function salary(){
-        return $this->hasMany(Salary::class, 'id_employee', 'id');
-    }
 }

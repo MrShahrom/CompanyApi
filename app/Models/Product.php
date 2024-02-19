@@ -13,9 +13,6 @@ class Product extends Model
         'name', 'selling_price', 'id_sklad', 'id_type_product','quantity', 'status',
     ];
 
-    // public function order(){
-    //     return $this->hasMany(Order::class, 'id_product', 'id');
-    // }
     public function type_product()
     {
         return $this->belongsTo(TypeProduct::class, 'id_type_product', 'id');

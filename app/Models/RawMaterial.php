@@ -17,8 +17,4 @@ class RawMaterial extends Model
         return $this->belongsTo(Supplier::class, 'id_supplier', 'id');
     }
 
-    // public function recipe(){
-    //     return $this->hasMany(Recipe::class, 'id', 'id_raw_material');
-    // }
-
 }
