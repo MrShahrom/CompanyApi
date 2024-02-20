@@ -6,6 +6,8 @@ use App\Http\Requests\Cost\StoreRequest;
 use App\Http\Requests\Cost\UpdateRequest;
 use App\Http\Resources\CostResource;
 use App\Models\Cost;
+use App\Models\TypeProduct;
+use App\Models\Recipe;
 use Illuminate\Http\Request;
 
 class CostController extends Controller
@@ -18,6 +20,41 @@ class CostController extends Controller
         $costs = Cost::all();
         return CostResource::collection($costs);
     }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function calculateCost($typeProductId)
+    {
+        // Получаем все рецепты для данного типа продукта
+        $recipes = Recipe::where('id_type_product', $typeProductId)->get();
+
+        $totalCost = 0;
+
+        // Проходимся по каждому рецепту
+        foreach ($recipes as $recipe) {
+            // Получаем сырье для данного рецепта
+            $rawMaterial = $recipe->rawmaterial;
+
+            // Проверяем наличие сырья в таблице
+            if ($rawMaterial) {
+                // Рассчитываем стоимость сырья для данного рецепта
+                $materialCost = $rawMaterial->purchase_price * $recipe->quantity;
+
+                // Добавляем стоимость сырья к общей стоимости
+                $totalCost += $materialCost;
+            } else {
+                // Если сырье отсутствует в таблице, выводим сообщение об ошибке или обрабатываем эту ситуацию по вашему усмотрению
+                return response()->json(['error' => 'Отсутствует информация о сырье для рецепта'], 404);
+            }
+        }
+
+        // Возвращаем общую себестоимость продукта
+        return $totalCost;
+    }
+
+
+
 
     /**
      * Show the form for creating a new resource.

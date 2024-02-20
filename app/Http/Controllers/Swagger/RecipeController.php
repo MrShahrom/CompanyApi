@@ -15,7 +15,7 @@ use App\Http\Controllers\Controller;
  *             @OA\Property(property="id_type_product", type="integer", example= 1),
  *             @OA\Property(property="id_raw_material", type="integer", example= 1),
  *             @OA\Property(property="unit", type="string", example="кг"),
- *             @OA\Property(property="quantity", type="integer", example= 9),
+ *             @OA\Property(property="quantity", type="float", example= 9),
  *             @OA\Property(property="description", type="string", example="Описание"),
  *         )
  *     ),
@@ -73,7 +73,7 @@ use App\Http\Controllers\Controller;
  *             @OA\Property(property="id_type_product", type="integer", example= 1),
  *             @OA\Property(property="id_raw_material", type="integer", example= 1),
  *             @OA\Property(property="unit", type="string", example="кг"),
- *             @OA\Property(property="quantity", type="integer", example= 9),
+ *             @OA\Property(property="quantity", type="float", example= 9),
  *             @OA\Property(property="description", type="string", example="Описание"),
  *         )
  *     ),

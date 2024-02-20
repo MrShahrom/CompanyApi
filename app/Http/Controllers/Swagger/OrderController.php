@@ -19,6 +19,7 @@ use App\Http\Controllers\Controller;
  *             @OA\Property(property="price_per_unit", type="float", example= 500.00),
  *             @OA\Property(property="total_amount", type="float", example= 8000),
  *             @OA\Property(property="quantity", type="integer", example= 16),
+ *             @OA\Property(property="type_of_sale", type="string", example= "Долг"),
  *         )
  *     ),
  *
@@ -151,6 +152,7 @@ use App\Http\Controllers\Controller;
  *             @OA\Property(property="price_per_unit", type="float", example= 500.00),
  *             @OA\Property(property="total_amount", type="float", example= 8000),
  *             @OA\Property(property="quantity", type="integer", example= 16),
+ *             @OA\Property(property="type_of_sale", type="string", example= "Долг"),
  *         )
  *     ),
  *

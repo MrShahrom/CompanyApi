@@ -29,6 +29,7 @@ class UpdateRequest extends FormRequest
             'price_per_unit' => ['required', 'numeric', 'regex:/^\d+(\.\d{1,4})?$/'],
             'total_amount' => ['required', 'numeric', 'regex:/^\d+(\.\d{1,4})?$/'],
             'quantity' => 'required|integer',
+            'type_of_sale' => 'required|string'
         ];
     }
 }

@@ -23,6 +23,7 @@ class OrderResource extends JsonResource
             'price_per_unit' => $this->price_per_unit,
             'total_amount' => $this->total_amount,
             'quantity' => $this->quantity,
+            'type_of_sale' => $this->type_of_sale,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

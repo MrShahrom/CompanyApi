@@ -606,6 +606,10 @@
                                     "quantity": {
                                         "type": "integer",
                                         "example": 16
+                                    },
+                                    "type_of_sale": {
+                                        "type": "string",
+                                        "example": "Долг"
                                     }
                                 },
                                 "type": "object"
@@ -726,6 +730,10 @@
                                     "quantity": {
                                         "type": "integer",
                                         "example": 16
+                                    },
+                                    "type_of_sale": {
+                                        "type": "string",
+                                        "example": "Долг"
                                     }
                                 },
                                 "type": "object"
@@ -1045,12 +1053,11 @@
                                     "purchase_price": {
                                         "type": "number",
                                         "format": "float",
-                                        "example": 96000
+                                        "example": 20
                                     },
                                     "units_of_measurement": {
-                                        "type": "number",
-                                        "format": "float",
-                                        "example": 16
+                                        "type": "string",
+                                        "example": "сомони"
                                     },
                                     "id_supplier": {
                                         "type": "integer",
@@ -1150,7 +1157,7 @@
                         "in": "path",
                         "description": "ID сырье",
                         "required": true,
-                        "example": 2
+                        "example": 1
                     }
                 ],
                 "requestBody": {
@@ -1173,12 +1180,11 @@
                                     "purchase_price": {
                                         "type": "number",
                                         "format": "float",
-                                        "example": 96000
+                                        "example": 20
                                     },
                                     "units_of_measurement": {
-                                        "type": "number",
-                                        "format": "float",
-                                        "example": 16
+                                        "type": "string",
+                                        "example": "сомони"
                                     },
                                     "id_supplier": {
                                         "type": "integer",
@@ -1247,7 +1253,8 @@
                                         "example": "кг"
                                     },
                                     "quantity": {
-                                        "type": "integer",
+                                        "type": "number",
+                                        "format": "float",
                                         "example": 9
                                     },
                                     "description": {
@@ -1356,164 +1363,13 @@
                                         "example": "кг"
                                     },
                                     "quantity": {
-                                        "type": "integer",
+                                        "type": "number",
+                                        "format": "float",
                                         "example": 9
                                     },
                                     "description": {
                                         "type": "string",
                                         "example": "Описание"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Ok"
-                    }
-                }
-            }
-        },
-        "/api/salaries": {
-            "get": {
-                "tags": [
-                    "Salary"
-                ],
-                "summary": "Список",
-                "operationId": "4eaf6b2e230ae39f45ec50ae7a04280d",
-                "responses": {
-                    "200": {
-                        "description": "Ok"
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "Salary"
-                ],
-                "summary": "Создание",
-                "operationId": "f748c5e5f95462572c34af2b1a7470cc",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "id_employee": {
-                                        "type": "integer",
-                                        "example": 2
-                                    },
-                                    "amount": {
-                                        "type": "number",
-                                        "format": "float",
-                                        "example": 5000
-                                    },
-                                    "status": {
-                                        "type": "boolean",
-                                        "example": 1
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Ok"
-                    }
-                }
-            }
-        },
-        "/api/salaries/{salary}": {
-            "get": {
-                "tags": [
-                    "Salary"
-                ],
-                "summary": "Список по ID",
-                "operationId": "f15cf79b936bb5ad0d590d4af55163e4",
-                "parameters": [
-                    {
-                        "name": "salary",
-                        "in": "path",
-                        "description": "ID salary",
-                        "required": true,
-                        "example": 1
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Ok"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "Salary"
-                ],
-                "summary": "Удаление",
-                "operationId": "0988ca1405f4a747c5e9abffc49a9c9e",
-                "parameters": [
-                    {
-                        "name": "salary",
-                        "in": "path",
-                        "description": "ID salary",
-                        "required": true,
-                        "example": 1
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Ok",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "done"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "patch": {
-                "tags": [
-                    "Salary"
-                ],
-                "summary": "Обновление",
-                "operationId": "84a2bccae9a302a2c92cc999d145b2c1",
-                "parameters": [
-                    {
-                        "name": "salary",
-                        "in": "path",
-                        "description": "ID salary",
-                        "required": true,
-                        "example": 2
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "id_employee": {
-                                        "type": "integer",
-                                        "example": 2
-                                    },
-                                    "amount": {
-                                        "type": "number",
-                                        "format": "float",
-                                        "example": 5000
-                                    },
-                                    "status": {
-                                        "type": "boolean",
-                                        "example": 1
                                     }
                                 },
                                 "type": "object"

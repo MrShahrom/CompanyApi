@@ -38,7 +38,6 @@ Route::resource('rawmaterials', RawMaterialController::class);
 Route::resource('recipes', RecipeController::class);
 Route::resource('products', ProductController::class);
 Route::resource('orders', OrderController::class);
-Route::resource('salaries', SalaryController::class);
 Route::resource('costs', CostController::class);
 
 //Фильтр по дату
