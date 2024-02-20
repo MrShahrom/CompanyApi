@@ -56,6 +56,26 @@ use App\Http\Controllers\Controller;
  *     ),
  * ),
  *
+ * @OA\Post(
+ *     path="/api/products/calculate-cost",
+ *     summary="Калькулятор расчета себестоимости продукта",
+ *     tags={"Cost"},
+ *     @OA\Parameter(
+ *         name="productId",
+ *         in="query",
+ *         required=true,
+ *         description="id тип продукта",
+ *         @OA\Schema(
+ *             type="integer",
+ *             example="1"
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=200,
+ *         description=" "
+ *     ),
+ * )
+ *
  * @OA\Patch(
  *     path="/api/costs/{cost}",
  *     summary="Обновление",

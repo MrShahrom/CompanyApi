@@ -25,7 +25,7 @@ class UpdateRequest extends FormRequest
             'id_type_product' => ['required', 'integer'],
             'id_raw_material' => ['required', 'integer'],
             'unit' => ['required', 'string'],
-            'quantity' => ['required', 'numeric', 'regex:/^\d+(\.\d{1,2,3,4})?$/'],
+            'quantity' => ['required', 'numeric', 'regex:/^\d+(\.\d{1,4})?$/'],
             'description' => ['required', 'string'],
         ];
     }

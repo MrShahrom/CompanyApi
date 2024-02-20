@@ -350,6 +350,32 @@
                 }
             }
         },
+        "/api/products/calculate-cost": {
+            "post": {
+                "tags": [
+                    "Cost"
+                ],
+                "summary": "Калькулятор расчета себестоимости продукта",
+                "operationId": "4df2d3fc923195b5ed352620fb6cce5d",
+                "parameters": [
+                    {
+                        "name": "productId",
+                        "in": "query",
+                        "description": "id тип продукта",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": " "
+                    }
+                }
+            }
+        },
         "/api/employees": {
             "get": {
                 "tags": [

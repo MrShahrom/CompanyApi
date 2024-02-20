@@ -24,36 +24,44 @@ class CostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function calculateCost($typeProductId)
+    public function calculateCost(Request $request)
     {
-        // Получаем все рецепты для данного типа продукта
-        $recipes = Recipe::where('id_type_product', $typeProductId)->get();
+        $productId = $request->input('productId');
+        $recipes = Recipe::where('id_type_product', $productId)->get();
+
+        if ($recipes->isEmpty()) {
+            return response()->json(['error' => 'Отсутствуют рецепты для указанного типа продукта'], 404);
+        }
 
         $totalCost = 0;
+        $totalQuantityProduced = 0;
 
-        // Проходимся по каждому рецепту
         foreach ($recipes as $recipe) {
-            // Получаем сырье для данного рецепта
+
             $rawMaterial = $recipe->rawmaterial;
 
-            // Проверяем наличие сырья в таблице
             if ($rawMaterial) {
-                // Рассчитываем стоимость сырья для данного рецепта
-                $materialCost = $rawMaterial->purchase_price * $recipe->quantity;
 
-                // Добавляем стоимость сырья к общей стоимости
+                $materialCost = $rawMaterial->purchase_price * $recipe->quantity;
                 $totalCost += $materialCost;
+                $totalQuantityProduced += $recipe->typeproduct->quantity_produced;
+
             } else {
-                // Если сырье отсутствует в таблице, выводим сообщение об ошибке или обрабатываем эту ситуацию по вашему усмотрению
                 return response()->json(['error' => 'Отсутствует информация о сырье для рецепта'], 404);
             }
         }
 
-        // Возвращаем общую себестоимость продукта
-        return $totalCost;
+        if ($totalQuantityProduced > 0) {
+            // Рассчитываем себестоимость общего продукта
+            $total = $totalCost * $totalQuantityProduced;
+            // Рассчитываем себестоимость одного продукта
+            $costPerProduct = $total / $totalQuantityProduced;
+        } else {
+            $costPerProduct = 0;
+        }
+        //Себестоимост одного продукта
+        return $costPerProduct;
     }
-
-
 
 
     /**

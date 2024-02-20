@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_raw_material');
             $table->foreign('id_raw_material')->references('id')->on('raw_materials')->onDelete('cascade');
             $table->string('unit');
-            $table->integer('quantity');
+            $table->float('quantity');
             $table->string('description');
             $table->timestamps();
         });
