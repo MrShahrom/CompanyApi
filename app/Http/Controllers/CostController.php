@@ -38,14 +38,12 @@ class CostController extends Controller
 
         foreach ($recipes as $recipe) {
 
-            $rawMaterial = $recipe->rawmaterial;
+            $rawMaterial = $recipe->rawmaterial; //Получаем информацию о сырье, необходимом для производства продукта, из связанной модели RawMaterial
 
             if ($rawMaterial) {
-
-                $materialCost = $rawMaterial->purchase_price * $recipe->quantity;
+                $materialCost = $rawMaterial->purchase_price * $recipe->quantity; //Найдем общую сумму материалов (сырья), использованных для этого типа продуктов
                 $totalCost += $materialCost;
-                $totalQuantityProduced += $recipe->typeproduct->quantity_produced;
-
+                $totalQuantityProduced += $recipe->typeproduct->quantity_produced; //Найдем количество производенный тип продукта
             } else {
                 return response()->json(['error' => 'Отсутствует информация о сырье для рецепта'], 404);
             }
