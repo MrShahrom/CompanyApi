@@ -132,6 +132,26 @@ use App\Http\Controllers\Controller;
  *     ),
  * )
  *
+ * @OA\Post(
+ *     path="/api/orders/filterTypeOfSale",
+ *     summary="Список заказов с фильтрацией по тип продажи продукта",
+ *     tags={"Order"},
+ *     @OA\Parameter(
+ *         name="type_of_sale",
+ *         in="query",
+ *         required=true,
+ *         description="Тип продажи продукта",
+ *         @OA\Schema(
+ *             type="string",
+ *             example="Долг"
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=200,
+ *         description="Список заказов, удовлетворяющих условиям фильтрации"
+ *     ),
+ * )
+ *
  * @OA\Patch(
  *     path="/api/orders/{order}",
  *     summary="Обновление",

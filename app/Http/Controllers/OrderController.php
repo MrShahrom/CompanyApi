@@ -80,7 +80,24 @@ class OrderController extends Controller
         return OrderResource::collection($filteredOrders);
     }
 
+    /**
+     * Filter orders by typeofsale.
+     */
+    public function filterTypeOfSale(Request $request)
+    {
+        $request->validate([
+            'type_of_sale' => 'required|string',
+        ]);
 
+        $typeSale = $request->input('type_of_sale');
+        $filteredorders = Order::where('type_of_sale', 'LIKE', $typeSale . '%')->get();
+
+        if ($filteredorders->isEmpty()) {
+            return response()->json(['message' => 'Тип продажи с такими не найден']);
+        }
+
+        return OrderResource::collection($filteredorders);
+    }
 
     /**
      * Show the form for creating a new resource.

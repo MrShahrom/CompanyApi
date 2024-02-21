@@ -864,6 +864,32 @@
                 }
             }
         },
+        "/api/orders/filterTypeOfSale": {
+            "post": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Список заказов с фильтрацией по тип продажи продукта",
+                "operationId": "4abeb024c6d9daa0aef188b31f1d8dd4",
+                "parameters": [
+                    {
+                        "name": "type_of_sale",
+                        "in": "query",
+                        "description": "Тип продажи продукта",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Долг"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Список заказов, удовлетворяющих условиям фильтрации"
+                    }
+                }
+            }
+        },
         "/api/products": {
             "get": {
                 "tags": [
