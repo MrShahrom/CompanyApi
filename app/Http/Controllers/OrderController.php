@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\OrderExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\Order\StoreRequest;
 use App\Http\Requests\Order\UpdateRequest;
 use App\Http\Resources\OrderResource;
@@ -97,6 +99,11 @@ class OrderController extends Controller
         }
 
         return OrderResource::collection($filteredorders);
+    }
+
+    public function get_order_data()
+    {
+        return Excel::download(new OrderExport, 'orders.xlsx');
     }
 
     /**

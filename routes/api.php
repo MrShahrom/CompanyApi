@@ -58,4 +58,6 @@ Route::post('/orders/filterTypeOfSale', [OrderController::class, 'filterTypeOfSa
 //Калкульятор рассчета
 Route::post('/products/calculate-cost', [CostController::class, 'calculateCost']);
 
+//Экспорт orders
+Route::get('order_export',[OrderController::class, 'get_order_data'])->name('order_export');
 
