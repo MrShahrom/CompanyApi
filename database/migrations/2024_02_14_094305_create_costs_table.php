@@ -18,7 +18,7 @@ class CreateCostsTable extends Migration
             $table->unsignedBigInteger('id_product');
             $table->string('description');
             $table->float('amount', 10, 2);
-            $table->date('date');
+            $table->datetime('date');
             $table->timestamps();
 
             $table->foreign('id_product')->references('id')->on('products')->onDelete('cascade');
