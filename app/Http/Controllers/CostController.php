@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\CostExport;
 use App\Http\Requests\Cost\StoreRequest;
 use App\Http\Requests\Cost\UpdateRequest;
 use App\Http\Resources\CostResource;
@@ -9,6 +10,7 @@ use App\Models\Cost;
 use App\Models\TypeProduct;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CostController extends Controller
 {
@@ -59,6 +61,11 @@ class CostController extends Controller
         }
         //Себестоимост одного продукта
         return $costPerProduct;
+    }
+
+    public function get_cost_data()
+    {
+        return Excel::download(new CostExport, 'orders.xlsx');
     }
 
 

@@ -61,6 +61,9 @@ Route::post('/products/calculate-cost', [CostController::class, 'calculateCost']
 //Экспорт orders
 Route::get('order-export',[OrderController::class, 'get_order_data'])->name('order_export');
 
-//Экспорт orders
+//Экспорт сырье
 Route::get('rawmaterial_export',[RawMaterialController::class, 'get_rawMaterial_data'])->name('rawmaterial_export');
+
+//Экспорт сырье
+Route::get('cost_export',[CostController::class, 'get_cost_data'])->name('cost_export');
 
