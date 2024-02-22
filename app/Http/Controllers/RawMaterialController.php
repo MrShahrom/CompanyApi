@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\RawMaterialExport;
 use App\Http\Requests\RawMaterial\StoreRequest;
 use App\Http\Requests\RawMaterial\UpdateRequest;
 use App\Http\Resources\RawMaterialResource;
 use App\Models\RawMaterial;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RawMaterialController extends Controller
 {
@@ -17,6 +19,11 @@ class RawMaterialController extends Controller
     {
         $rawMaterial = RawMaterial::all();
         return RawMaterialResource::collection($rawMaterial);
+    }
+
+    public function get_rawMaterial_data()
+    {
+        return Excel::download(new RawMaterialExport, 'orders.xlsx');
     }
 
     /**

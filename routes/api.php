@@ -59,5 +59,8 @@ Route::post('/orders/filterTypeOfSale', [OrderController::class, 'filterTypeOfSa
 Route::post('/products/calculate-cost', [CostController::class, 'calculateCost']);
 
 //Экспорт orders
-Route::get('order_export',[OrderController::class, 'get_order_data'])->name('order_export');
+Route::get('order-export',[OrderController::class, 'get_order_data'])->name('order_export');
+
+//Экспорт orders
+Route::get('rawmaterial_export',[RawMaterialController::class, 'get_rawMaterial_data'])->name('rawmaterial_export');
 
