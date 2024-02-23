@@ -376,6 +376,20 @@
                 }
             }
         },
+        "/api/cost_export": {
+            "get": {
+                "tags": [
+                    "Cost"
+                ],
+                "summary": "Экспорт в excel",
+                "operationId": "06d2fe222aeaa1dce13270a2e35eb3b4",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
         "/api/employees": {
             "get": {
                 "tags": [
@@ -890,6 +904,20 @@
                 }
             }
         },
+        "/api/order_export": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Экспорт в excel",
+                "operationId": "ad2730454461311612297f647ec78704",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
         "/api/products": {
             "get": {
                 "tags": [
@@ -1261,6 +1289,20 @@
                         }
                     }
                 },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/api/rawmaterial_export": {
+            "get": {
+                "tags": [
+                    "RawMaterial"
+                ],
+                "summary": "Экспорт в excel",
+                "operationId": "c4e1843e6c6fcf2a803e0a9f30f66889",
                 "responses": {
                     "200": {
                         "description": "Ok"
