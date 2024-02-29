@@ -1,6 +1,6 @@
 <p align="center">
   <a href="#" target="_blank">
-    <img src="/public/img/logo.png" width="400" alt="Liga">
+    <img src="/public/img/logo.png" width="100" alt="Liga">
   </a>
 </p>
 
