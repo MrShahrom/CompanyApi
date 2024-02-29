@@ -30,7 +30,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-
+//Логин
 Route::post('login', [AuthController::class, 'login']);
 
 
