@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/order_export",
  *     summary="Экспорт в excel",
  *     tags={"Order"},
+ *     security={{ "bearerAuth": {} }},
+ * 
  *     @OA\Response(
  *         response=200,
  *         description="Ok"

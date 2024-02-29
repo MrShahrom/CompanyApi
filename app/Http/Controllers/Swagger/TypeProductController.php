@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
  *     path="/api/typeproducts",
  *     summary="Создание",
  *     tags={"TypeProduct"},
+ *     security={{ "bearerAuth": {} }},
  *
  *     @OA\RequestBody(
  *         @OA\JsonContent(
@@ -29,6 +30,7 @@ use App\Http\Controllers\Controller;
  *     path="/api/typeproducts",
  *     summary="Список",
  *     tags={"TypeProduct"},
+ *     security={{ "bearerAuth": {} }},
  *
  *
  *     @OA\Response(
@@ -41,6 +43,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/typeproducts/{typeproduct}",
  *     summary="Список по ID",
  *     tags={"TypeProduct"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         description="ID тип продукта",
  *         in="path",
@@ -60,6 +64,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/typeproducts/{typeproduct}",
  *     summary="Обновление",
  *     tags={"TypeProduct"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         description="ID тип продукта",
  *         in="path",
@@ -86,6 +92,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/typeproducts/{typeproduct}",
  *     summary="Удаление",
  *     tags={"TypeProduct"},
+ *     security={{ "bearerAuth": {} }},
+ * 
  *     @OA\Parameter(
  *         description="ID тип продукта",
  *         in="path",

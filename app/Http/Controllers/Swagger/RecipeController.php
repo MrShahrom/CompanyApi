@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
  *     path="/api/recipes",
  *     summary="Создание",
  *     tags={"Recipe"},
+ *     security={{ "bearerAuth": {} }},
  *
  *     @OA\RequestBody(
  *         @OA\JsonContent(
@@ -30,6 +31,7 @@ use App\Http\Controllers\Controller;
  *     path="/api/recipes",
  *     summary="Список",
  *     tags={"Recipe"},
+ *     security={{ "bearerAuth": {} }},
  *
  *
  *     @OA\Response(
@@ -42,6 +44,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/recipes/{recipe}",
  *     summary="Список по ID",
  *     tags={"Recipe"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         description="ID recipe",
  *         in="path",
@@ -61,6 +65,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/recipes/{recipe}",
  *     summary="Обновление",
  *     tags={"Recipe"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         description="ID recipe",
  *         in="path",
@@ -88,6 +94,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/recipes/{recipe}",
  *     summary="Удаление",
  *     tags={"Recipe"},
+ *     security={{ "bearerAuth": {} }},
+ * 
  *     @OA\Parameter(
  *         description="ID recipe",
  *         in="path",

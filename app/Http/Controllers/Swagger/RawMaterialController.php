@@ -65,6 +65,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/rawmaterials/{rawmaterial}",
  *     summary="Обновление",
  *     tags={"RawMaterial"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         description="ID сырье",
  *         in="path",
@@ -96,6 +98,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/rawmaterials/{rawmaterial}",
  *     summary="Удаление",
  *     tags={"RawMaterial"},
+ *     security={{ "bearerAuth": {} }},
+ * 
  *     @OA\Parameter(
  *         description="ID сырье",
  *         in="path",

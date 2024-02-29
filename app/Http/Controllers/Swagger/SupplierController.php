@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
  *     path="/api/suppliers",
  *     summary="Создание",
  *     tags={"Supplier"},
+ *     security={{ "bearerAuth": {} }},
  *
  *     @OA\RequestBody(
  *         @OA\JsonContent(
@@ -30,6 +31,7 @@ use App\Http\Controllers\Controller;
  *     path="/api/suppliers",
  *     summary="Список",
  *     tags={"Supplier"},
+ *     security={{ "bearerAuth": {} }},
  *
  *
  *     @OA\Response(
@@ -42,6 +44,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/suppliers/{supplier}",
  *     summary="Список по ID",
  *     tags={"Supplier"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         description="ID клиент",
  *         in="path",
@@ -61,6 +65,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/suppliers/filterByname",
  *     summary="Список поставщиков с фильтрацией по название",
  *     tags={"Supplier"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         name="name",
  *         in="query",
@@ -81,6 +87,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/suppliers/{supplier}",
  *     summary="Обновление",
  *     tags={"Supplier"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         description="ID клиент",
  *         in="path",
@@ -108,6 +116,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/suppliers/{supplier}",
  *     summary="Удаление",
  *     tags={"Supplier"},
+ *     security={{ "bearerAuth": {} }},
+ * 
  *     @OA\Parameter(
  *         description="ID клиент",
  *         in="path",

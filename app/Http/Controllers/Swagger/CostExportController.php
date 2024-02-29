@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/cost_export",
  *     summary="Экспорт в excel",
  *     tags={"Cost"},
+ *     security={{ "bearerAuth": {} }},
+ * 
  *     @OA\Response(
  *         response=200,
  *         description="Ok"

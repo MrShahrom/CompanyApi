@@ -17,7 +17,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -68,7 +73,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/clients/{client}": {
@@ -91,7 +101,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -125,7 +140,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "patch": {
                 "tags": [
@@ -185,7 +205,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/costs": {
@@ -199,7 +224,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -240,7 +270,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/costs/{cost}": {
@@ -263,7 +298,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -297,7 +337,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "patch": {
                 "tags": [
@@ -347,7 +392,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/products/calculate-cost": {
@@ -373,7 +423,12 @@
                     "200": {
                         "description": " "
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/cost_export": {
@@ -387,7 +442,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/employees": {
@@ -401,7 +461,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -462,7 +527,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/employees/{employee}": {
@@ -485,7 +555,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -519,7 +594,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "patch": {
                 "tags": [
@@ -589,7 +669,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/orders": {
@@ -603,7 +688,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -661,7 +751,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/orders/{order}": {
@@ -684,7 +779,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -718,7 +818,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "patch": {
                 "tags": [
@@ -785,7 +890,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/orders/filterByDate": {
@@ -823,7 +933,12 @@
                     "200": {
                         "description": "Список заказов, удовлетворяющих условиям фильтрации"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/orders/filterByunits": {
@@ -849,7 +964,12 @@
                     "200": {
                         "description": "Список заказов, удовлетворяющих условиям фильтрации"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/orders/filterBynameproduct": {
@@ -875,7 +995,12 @@
                     "200": {
                         "description": "Список заказов, удовлетворяющих условиям фильтрации"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/orders/filterTypeOfSale": {
@@ -901,7 +1026,12 @@
                     "200": {
                         "description": "Список заказов, удовлетворяющих условиям фильтрации"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/order_export": {
@@ -915,7 +1045,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/products": {
@@ -929,7 +1064,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -977,7 +1117,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/products/{product}": {
@@ -1000,7 +1145,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -1034,7 +1184,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "patch": {
                 "tags": [
@@ -1091,7 +1246,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/rawmaterials": {
@@ -1223,7 +1383,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "patch": {
                 "tags": [
@@ -1293,7 +1458,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/rawmaterial_export": {
@@ -1307,7 +1477,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/recipes": {
@@ -1321,7 +1496,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -1365,7 +1545,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/recipes/{recipe}": {
@@ -1388,7 +1573,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -1422,7 +1612,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "patch": {
                 "tags": [
@@ -1475,7 +1670,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/sklads": {
@@ -1489,7 +1689,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -1532,7 +1737,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/sklads/{sklad}": {
@@ -1555,7 +1765,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -1589,7 +1804,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "patch": {
                 "tags": [
@@ -1641,7 +1861,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/suppliers": {
@@ -1655,7 +1880,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -1698,7 +1928,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/suppliers/{supplier}": {
@@ -1721,7 +1956,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -1755,7 +1995,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "patch": {
                 "tags": [
@@ -1807,7 +2052,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/suppliers/filterByname": {
@@ -1833,7 +2083,12 @@
                     "200": {
                         "description": "Список заказов, удовлетворяющих условиям фильтрации"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/typeproducts": {
@@ -1847,7 +2102,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -1886,7 +2146,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/typeproducts/{typeproduct}": {
@@ -1909,7 +2174,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -1943,7 +2213,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "patch": {
                 "tags": [
@@ -1991,7 +2266,20 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
             }
         }
     }

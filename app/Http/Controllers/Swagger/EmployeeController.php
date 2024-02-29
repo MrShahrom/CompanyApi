@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
  *     path="/api/employees",
  *     summary="Создание",
  *     tags={"Employee"},
+ *     security={{ "bearerAuth": {} }},
  *
  *     @OA\RequestBody(
  *         @OA\JsonContent(
@@ -34,6 +35,7 @@ use App\Http\Controllers\Controller;
  *     path="/api/employees",
  *     summary="Список",
  *     tags={"Employee"},
+ *     security={{ "bearerAuth": {} }},
  *
  *
  *     @OA\Response(
@@ -46,6 +48,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/employees/{employee}",
  *     summary="Список по ID",
  *     tags={"Employee"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         description="ID клиент",
  *         in="path",
@@ -65,6 +69,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/employees/{employee}",
  *     summary="Обновление",
  *     tags={"Employee"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         description="ID клиент",
  *         in="path",
@@ -96,6 +102,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/employees/{employee}",
  *     summary="Удаление",
  *     tags={"Employee"},
+ *     security={{ "bearerAuth": {} }},
+ * 
  *     @OA\Parameter(
  *         description="ID клиент",
  *         in="path",

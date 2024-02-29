@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
  *     path="/api/orders",
  *     summary="Создание",
  *     tags={"Order"},
+ *     security={{ "bearerAuth": {} }},
  *
  *     @OA\RequestBody(
  *         @OA\JsonContent(
@@ -33,6 +34,7 @@ use App\Http\Controllers\Controller;
  *     path="/api/orders",
  *     summary="Список",
  *     tags={"Order"},
+ *     security={{ "bearerAuth": {} }},
  *
  *
  *     @OA\Response(
@@ -45,6 +47,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/orders/{order}",
  *     summary="Список по ID",
  *     tags={"Order"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         description="ID order",
  *         in="path",
@@ -64,6 +68,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/orders/filterByDate",
  *     summary="Список заказов с фильтрацией по дате отгрузки",
  *     tags={"Order"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         name="from_date",
  *         in="query",
@@ -96,6 +102,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/orders/filterByunits",
  *     summary="Список заказов с фильтрацией по единица измерения",
  *     tags={"Order"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         name="units_of_measurement",
  *         in="query",
@@ -116,6 +124,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/orders/filterBynameproduct",
  *     summary="Список заказов с фильтрацией по название продукты",
  *     tags={"Order"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         name="product_name",
  *         in="query",
@@ -136,6 +146,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/orders/filterTypeOfSale",
  *     summary="Список заказов с фильтрацией по тип продажи продукта",
  *     tags={"Order"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         name="type_of_sale",
  *         in="query",
@@ -156,6 +168,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/orders/{order}",
  *     summary="Обновление",
  *     tags={"Order"},
+ *     security={{ "bearerAuth": {} }},
+ *
  *     @OA\Parameter(
  *         description="ID order",
  *         in="path",
@@ -186,6 +200,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/orders/{order}",
  *     summary="Удаление",
  *     tags={"Order"},
+ *     security={{ "bearerAuth": {} }},
+ * 
  *     @OA\Parameter(
  *         description="ID order",
  *         in="path",

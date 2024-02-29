@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/rawmaterial_export",
  *     summary="Экспорт в excel",
  *     tags={"RawMaterial"},
+ *     security={{ "bearerAuth": {} }},
+ * 
  *     @OA\Response(
  *         response=200,
  *         description="Ok"
