@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
  *     path="/api/rawmaterials",
  *     summary="Создание",
  *     tags={"RawMaterial"},
+ *     security={{ "bearerAuth": {} }},
  *
  *     @OA\RequestBody(
  *         @OA\JsonContent(
@@ -34,6 +35,7 @@ use App\Http\Controllers\Controller;
  *     path="/api/rawmaterials",
  *     summary="Список",
  *     tags={"RawMaterial"},
+ *     security={{ "bearerAuth": {} }},
  *
  *
  *     @OA\Response(
@@ -46,6 +48,8 @@ use App\Http\Controllers\Controller;
  *     path="/api/rawmaterials/{rawmaterial}",
  *     summary="Список по ID",
  *     tags={"RawMaterial"},
+ *     security={{ "bearerAuth": {} }},
+ * 
  *     @OA\Parameter(
  *         description="ID сырье",
  *         in="path",
@@ -99,7 +103,7 @@ use App\Http\Controllers\Controller;
  *     summary="Удаление",
  *     tags={"RawMaterial"},
  *     security={{ "bearerAuth": {} }},
- * 
+ *
  *     @OA\Parameter(
  *         description="ID сырье",
  *         in="path",

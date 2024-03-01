@@ -1303,7 +1303,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -1364,7 +1369,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/rawmaterials/{rawmaterial}": {
@@ -1387,7 +1397,12 @@
                     "200": {
                         "description": "Ok"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
