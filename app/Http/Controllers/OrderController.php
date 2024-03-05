@@ -7,6 +7,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\Order\StoreRequest;
 use App\Http\Requests\Order\UpdateRequest;
 use App\Http\Resources\OrderResource;
+use App\Models\Client;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -119,10 +120,19 @@ class OrderController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $data = $request->validated();
-        $order = Order::create($data);
+        try {
+            $client = Client::findOrFail($request->id_client);
 
-        return OrderResource::make($order);
+            if ($client->status == 1) {
+                $data = $request->validated();
+                $order = Order::create($data);
+                return OrderResource::make($order);
+            } else {
+                return response()->json(['error' => 'This client cannot place orders'], 403);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'An error occurred: ' . $e->getMessage()], 500);
+        }
     }
 
     /**
