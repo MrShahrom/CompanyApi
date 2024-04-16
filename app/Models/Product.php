@@ -17,5 +17,9 @@ class Product extends Model
     {
         return $this->belongsTo(TypeProduct::class, 'id_type_product', 'id');
     }
+    public function sklad()
+    {
+        return $this->belongsTo(Sklad::class, 'id_sklad', 'id');
+    }
 
 }
