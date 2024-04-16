@@ -12,7 +12,7 @@ class CheckTechnolog
         // We can assume that the user is authenticated here,
         // as it is already checked by the 'jwt.auth' middleware in the route group
 
-        if (auth()->user()->role !== 'technolog') {
+        if (auth()->user()->role !== 'technolog' && auth()->user()->role !== 'admin') {
             return response("You don't have access", 403);
         }
 

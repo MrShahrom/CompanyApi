@@ -36,12 +36,13 @@ Route::post('login', [AuthController::class, 'login']);
 
 
 Route::group(['middleware' => 'jwt.auth'], function () {
+    Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('refresh', [AuthController::class, 'refresh']);
+    Route::post('me', [AuthController::class, 'me']);
 
     Route::group(['middleware' => 'CheckAdmin'], function(){
 
-        Route::post('logout', [AuthController::class, 'logout']);
-        Route::post('refresh', [AuthController::class, 'refresh']);
-        Route::post('me', [AuthController::class, 'me']);
+
         //resource
         Route::resource('clients', ClientController::class);
         Route::resource('employees', EmployeeController::class);
@@ -85,9 +86,6 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 
     Route::group(['middleware' => 'CheckTechnolog'], function(){
 
-        Route::post('logout', [AuthController::class, 'logout']);
-        Route::post('refresh', [AuthController::class, 'refresh']);
-        Route::post('me', [AuthController::class, 'me']);
         //resource
         Route::resource('suppliers', SupplierController::class);
         Route::resource('sklads', SkladController::class);
