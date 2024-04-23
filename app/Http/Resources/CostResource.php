@@ -16,7 +16,6 @@ class CostResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'id_product' => $this->product,
             'description' => $this->description,
             'amount' => $this->amount,
             'date' => $this->date,

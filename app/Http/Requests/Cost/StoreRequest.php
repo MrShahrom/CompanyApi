@@ -22,7 +22,6 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id_product' => 'required|integer',
             'description' => 'required|string',
             'date' => 'required|date_format:Y-m-d H:i:s',
             'amount' => ['required', 'numeric', 'regex:/^\d+(\.\d{1,4})?$/']

@@ -13,7 +13,6 @@ use App\Http\Controllers\Controller;
  *
  *     @OA\RequestBody(
  *         @OA\JsonContent(
- *             @OA\Property(property="id_product", type="string", example= 1),
  *             @OA\Property(property="description", type="string", example="Описание"),
  *             @OA\Property(property="amount", type="float", example=750.00),
  *             @OA\Property(property="date", type="datetime", example= "2024-02-14 15:00:15"),
@@ -97,7 +96,6 @@ use App\Http\Controllers\Controller;
  *     ),
  *     @OA\RequestBody(
  *         @OA\JsonContent(
- *             @OA\Property(property="id_product", type="string", example= 1),
  *             @OA\Property(property="description", type="string", example="Описание"),
  *             @OA\Property(property="amount", type="float", example=900.00),
  *             @OA\Property(property="date", type="datetime", example="2024-02-14 15:00:15"),
@@ -115,7 +113,7 @@ use App\Http\Controllers\Controller;
  *     summary="Удаление",
  *     tags={"Cost"},
  *     security={{ "bearerAuth": {} }},
- * 
+ *
  *     @OA\Parameter(
  *         description="ID cost",
  *         in="path",

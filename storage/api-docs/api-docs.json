@@ -242,10 +242,6 @@
                         "application/json": {
                             "schema": {
                                 "properties": {
-                                    "id_product": {
-                                        "type": "string",
-                                        "example": 1
-                                    },
                                     "description": {
                                         "type": "string",
                                         "example": "Описание"
@@ -364,10 +360,6 @@
                         "application/json": {
                             "schema": {
                                 "properties": {
-                                    "id_product": {
-                                        "type": "string",
-                                        "example": 1
-                                    },
                                     "description": {
                                         "type": "string",
                                         "example": "Описание"
