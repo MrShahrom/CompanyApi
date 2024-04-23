@@ -72,19 +72,28 @@ class RawMaterialController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request, RawMaterial $rawMaterial)
+    public function update(UpdateRequest $request, $id)
     {
+        $rawMaterial = RawMaterial::find($id);
+
+        if (!$rawMaterial) {
+            return response()->json([
+                'message' => 'Raw material not found'
+            ], 404);
+        }
         $data = $request->validated();
         $rawMaterial->update($data);
-
-        return RawMaterialResource::make($rawMaterial);
+        return response()->json([
+            'message' => 'Updated'
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(RawMaterial $rawMaterial)
+    public function destroy($id)
     {
+        $rawMaterial = RawMaterial::find($id);
         $rawMaterial->delete();
         return response()->json([
             'message' => 'Deleted'
