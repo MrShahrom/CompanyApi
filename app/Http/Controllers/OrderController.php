@@ -9,6 +9,7 @@ use App\Http\Requests\Order\UpdateRequest;
 use App\Http\Resources\OrderResource;
 use App\Models\Client;
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -125,8 +126,23 @@ class OrderController extends Controller
 
             if ($client->status == 1) {
                 $data = $request->validated();
-                $order = Order::create($data);
-                return OrderResource::make($order);
+
+                // Получаем информацию о продукте
+                $product = Product::findOrFail($request->id_product);
+
+                // Проверяем, достаточно ли продуктов на складе
+                if ($request->quantity <= $product->quantity) {
+                    // Создаем заказ
+                    $order = Order::create($data);
+
+                    // Уменьшаем количество продукта на складе
+                    $product->quantity -= $request->quantity;
+                    $product->save();
+
+                    return OrderResource::make($order);
+                } else {
+                    return response()->json(['error' => 'Недостаточно продуктов на складе'], 403);
+                }
             } else {
                 return response()->json(['error' => 'This client cannot place orders'], 403);
             }

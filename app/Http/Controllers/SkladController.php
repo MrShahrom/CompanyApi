@@ -57,12 +57,20 @@ class SkladController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request, Sklad $sklad)
+    public function update(UpdateRequest $request, $id)
     {
+        $sklad = Sklad::find($id);
+
+        if (!$sklad) {
+            return response()->json([
+                'message' => 'Sklad not found'
+            ], 404);
+        }
         $data = $request->validated();
         $sklad->update($data);
-
-        return SkladResource::make($sklad);
+        return response()->json([
+            'message' => 'Updated'
+        ]);
     }
 
     /**

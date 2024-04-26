@@ -49,7 +49,7 @@ use App\Http\Controllers\Controller;
  *     @OA\Parameter(
  *         description="ID sklad",
  *         in="path",
- *         name="client",
+ *         name="sklad",
  *         required=true,
  *         example=1,
  *     ),
@@ -95,7 +95,7 @@ use App\Http\Controllers\Controller;
  *     summary="Удаление",
  *     tags={"Sklad"},
  *     security={{ "bearerAuth": {} }},
- * 
+ *
  *     @OA\Parameter(
  *         description="ID sklad",
  *         in="path",

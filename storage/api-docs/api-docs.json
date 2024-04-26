@@ -1799,7 +1799,7 @@
                 "operationId": "e48ea8268a1ccbe00ee8a9c100ccc6cb",
                 "parameters": [
                     {
-                        "name": "client",
+                        "name": "sklad",
                         "in": "path",
                         "description": "ID sklad",
                         "required": true,

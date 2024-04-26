@@ -92,6 +92,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
         Route::resource('typeproducts', TypeProductController::class);
         Route::resource('rawmaterials', RawMaterialController::class);
         Route::resource('recipes', RecipeController::class);
+        Route::resource('products', ProductController::class);
 
         //Фильтр по названия поставщика
         Route::post('/suppliers/filterByname', [SupplierController::class, 'filterByname']);
