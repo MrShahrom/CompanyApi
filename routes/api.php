@@ -11,6 +11,7 @@ use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\SkladController;
 use App\Http\Controllers\TypeProductController;
+use App\Http\Controllers\GetCountObjectController;
 use App\Http\Middleware\CheckAdmin;
 use App\Http\Middleware\CheckRole;
 use Illuminate\Http\Request;
@@ -40,8 +41,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::post('me', [AuthController::class, 'me']);
 
-    Route::group(['middleware' => 'CheckAdmin'], function(){
-
+    Route::group(['middleware' => 'CheckAdmin'], function () {
 
         //resource
         Route::resource('clients', ClientController::class);
@@ -74,17 +74,28 @@ Route::group(['middleware' => 'jwt.auth'], function () {
         Route::post('/products/calculate-cost', [CostController::class, 'calculateCost']);
 
         //Экспорт заказы
-        Route::get('order_export',[OrderController::class, 'get_order_data'])->name('order_export');
+        Route::get('order_export', [OrderController::class, 'get_order_data'])->name('order_export');
 
         //Экспорт сырье
-        Route::get('rawmaterial_export',[RawMaterialController::class, 'get_rawMaterial_data'])->name('rawmaterial_export');
+        Route::get('rawmaterial_export', [RawMaterialController::class, 'get_rawMaterial_data'])->name('rawmaterial_export');
 
         //Экспорт расходы
-        Route::get('cost_export',[CostController::class, 'get_cost_data'])->name('cost_export');
+        Route::get('cost_export', [CostController::class, 'get_cost_data'])->name('cost_export');
 
+        // Маршруты для получения количества объектов
+        Route::get('/count/costs', [GetCountObjectController::class, 'getCountCosts']);
+        Route::get('/count/recipes', [GetCountObjectController::class, 'getCountRecipes']);
+        Route::get('/count/clients', [GetCountObjectController::class, 'getCountClients']);
+        Route::get('/count/employees', [GetCountObjectController::class, 'getCountEmployees']);
+        Route::get('/count/orders', [GetCountObjectController::class, 'getCountOrders']);
+        Route::get('/count/products', [GetCountObjectController::class, 'getCountProducts']);
+        Route::get('/count/rawmaterials', [GetCountObjectController::class, 'getCountRawMaterials']);
+        Route::get('/count/sklads', [GetCountObjectController::class, 'getCountSklads']);
+        Route::get('/count/suppliers', [GetCountObjectController::class, 'getCountSuppliers']);
+        Route::get('/count/typeproducts', [GetCountObjectController::class, 'getCountTypeProducts']);
     });
 
-    Route::group(['middleware' => 'CheckTechnolog'], function(){
+    Route::group(['middleware' => 'CheckTechnolog'], function () {
 
         //resource
         Route::resource('suppliers', SupplierController::class);
@@ -98,8 +109,6 @@ Route::group(['middleware' => 'jwt.auth'], function () {
         Route::post('/suppliers/filterByname', [SupplierController::class, 'filterByname']);
 
         //Экспорт сырье
-        Route::get('rawmaterial_export',[RawMaterialController::class, 'get_rawMaterial_data'])->name('rawmaterial_export');
-
+        Route::get('rawmaterial_export', [RawMaterialController::class, 'get_rawMaterial_data'])->name('rawmaterial_export');
     });
-
 });

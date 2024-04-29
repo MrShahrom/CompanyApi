@@ -6,6 +6,196 @@
     },
     "paths": {
         "/api/": {},
+        "/api/count/costs": {
+            "get": {
+                "tags": [
+                    "GetObjectCount"
+                ],
+                "summary": "Количество затраты",
+                "operationId": "7593c83764b3ecc8fb5b46007531051f",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/count/recipes": {
+            "get": {
+                "tags": [
+                    "GetObjectCount"
+                ],
+                "summary": "Количество рецепты",
+                "operationId": "c14703a682d0c2913c57859e1381eccb",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/count/clients": {
+            "get": {
+                "tags": [
+                    "GetObjectCount"
+                ],
+                "summary": "Количество клиентов",
+                "operationId": "0f7e27a2076c197b2edd129fc70342bf",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/count/employees": {
+            "get": {
+                "tags": [
+                    "GetObjectCount"
+                ],
+                "summary": "Количество сотрудников",
+                "operationId": "0b5ef6951103ec13eeb05d56d850524b",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/count/orders": {
+            "get": {
+                "tags": [
+                    "GetObjectCount"
+                ],
+                "summary": "Количество заказов",
+                "operationId": "df47a7576ec993a4745ee20d8b1e3b1c",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/count/products": {
+            "get": {
+                "tags": [
+                    "GetObjectCount"
+                ],
+                "summary": "Количество продуктов",
+                "operationId": "aaca4460182fba470359b8495d7dd25e",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/count/rawmaterials": {
+            "get": {
+                "tags": [
+                    "GetObjectCount"
+                ],
+                "summary": "Количество сырье",
+                "operationId": "f6974ceb0ac050f9148dc61677653ec7",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/count/sklads": {
+            "get": {
+                "tags": [
+                    "GetObjectCount"
+                ],
+                "summary": "Количество складов",
+                "operationId": "f7f5c725eba18a8fc73de3af239754c5",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/count/suppliers": {
+            "get": {
+                "tags": [
+                    "GetObjectCount"
+                ],
+                "summary": "Количество поставщиков",
+                "operationId": "7b498db80901cff761d196afc6d24ada",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/count/typeproducts": {
+            "get": {
+                "tags": [
+                    "GetObjectCount"
+                ],
+                "summary": "Количество тип продуктов",
+                "operationId": "c0db2e5615a7a9c0bb8015d6aec57867",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/clients": {
             "get": {
                 "tags": [
