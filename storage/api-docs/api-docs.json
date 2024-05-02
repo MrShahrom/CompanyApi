@@ -1295,12 +1295,23 @@
                 "tags": [
                     "Product"
                 ],
-                "summary": "Создание",
+                "summary": "Создание продукта",
                 "operationId": "9936e8ee6c69d9ab9561b82b2cd75ee8",
                 "requestBody": {
+                    "description": "Данные для создания продукта",
+                    "required": true,
                     "content": {
-                        "application/json": {
+                        "multipart/form-data": {
                             "schema": {
+                                "required": [
+                                    "name",
+                                    "id_sklad",
+                                    "selling_price",
+                                    "id_type_product",
+                                    "quantity",
+                                    "status",
+                                    "image"
+                                ],
                                 "properties": {
                                     "name": {
                                         "type": "string",
@@ -1312,7 +1323,7 @@
                                     },
                                     "selling_price": {
                                         "type": "number",
-                                        "format": "float",
+                                        "format": "double",
                                         "example": 200
                                     },
                                     "id_type_product": {
@@ -1324,8 +1335,13 @@
                                         "example": 10
                                     },
                                     "status": {
-                                        "type": "boolean",
+                                        "type": "integer",
                                         "example": 1
+                                    },
+                                    "image": {
+                                        "description": "Выберите файл изображения продукта",
+                                        "type": "string",
+                                        "format": "binary"
                                     }
                                 },
                                 "type": "object"
@@ -1335,7 +1351,52 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Ok"
+                        "description": "Успешное создание продукта",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Продукт успешно создан"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Неверный формат данных",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Некоторые обязательные поля отсутствуют или имеют неверный формат"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Внутренняя ошибка сервера",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Ошибка при создании продукта"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 },
                 "security": [
@@ -1415,21 +1476,35 @@
                 "tags": [
                     "Product"
                 ],
-                "summary": "Обновление",
+                "summary": "Обновление продукта",
                 "operationId": "961103789b2bea02d87d9ce9794817c1",
                 "parameters": [
                     {
                         "name": "product",
                         "in": "path",
-                        "description": "ID product",
+                        "description": "ID продукта",
                         "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
                         "example": 2
                     }
                 ],
                 "requestBody": {
+                    "description": "Данные для обновления продукта",
+                    "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
+                                "required": [
+                                    "name",
+                                    "id_sklad",
+                                    "selling_price",
+                                    "id_type_product",
+                                    "quantity",
+                                    "status",
+                                    "image"
+                                ],
                                 "properties": {
                                     "name": {
                                         "type": "string",
@@ -1454,7 +1529,12 @@
                                     },
                                     "status": {
                                         "type": "boolean",
-                                        "example": 1
+                                        "example": true
+                                    },
+                                    "image": {
+                                        "description": "Новое изображение продукта",
+                                        "type": "string",
+                                        "format": "binary"
                                     }
                                 },
                                 "type": "object"
@@ -1464,7 +1544,39 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Ok"
+                        "description": "Успешное обновление продукта"
+                    },
+                    "400": {
+                        "description": "Неверный формат данных",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Некоторые обязательные поля отсутствуют или имеют неверный формат"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Внутренняя ошибка сервера",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Ошибка при обновлении продукта"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
                 },
                 "security": [

@@ -7,6 +7,8 @@ use App\Http\Requests\Product\UpdateRequest;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -32,10 +34,22 @@ class ProductController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $data = $request->validated();
-        $product = Product::create($data);
+        try {
+            $data = $request->validated();
 
-        return ProductResource::make($product);
+            // Обработка изображения
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('images', 'public');
+                $data['image'] = $imagePath;
+            }
+
+            $product = Product::create($data);
+
+            return ProductResource::make($product);
+        } catch (\Exception $e) {
+            Log::error('Error while storing product: ' . $e->getMessage());
+            return response()->json(['message' => 'Error occurred while storing product'], 500);
+        }
     }
 
     /**
@@ -65,10 +79,27 @@ class ProductController extends Controller
      */
     public function update(UpdateRequest $request, Product $product)
     {
-        $data = $request->validated();
-        $product->update($data);
+        try {
+            $data = $request->validated();
 
-        return ProductResource::make($product);
+            // Обработка изображения
+            if ($request->hasFile('image')) {
+                // Удаление предыдущего изображения, если оно существует
+                if ($product->image) {
+                    Storage::disk('public')->delete($product->image);
+                }
+                // Сохранение нового изображения
+                $imagePath = $request->file('image')->store('images', 'public');
+                $data['image'] = $imagePath;
+            }
+
+            $product->update($data);
+
+            return response()->json(['message' => 'Продукт успешно обновлен'], 200);
+        } catch (\Exception $e) {
+            Log::error('Ошибка при обновлении продукта: ' . $e->getMessage());
+            return response()->json(['message' => 'Ошибка при обновлении продукта'], 500);
+        }
     }
 
     /**

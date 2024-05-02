@@ -23,6 +23,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
+            'image' => ['image:jpeg,png,jpg,gif,svg|max:2048'],
             'id_sklad' => ['required', 'integer'],
             'selling_price' => ['required', 'numeric', 'regex:/^\d+(\.\d{1,2,3,4})?$/'],
             'id_type_product' => ['required', 'integer'],
