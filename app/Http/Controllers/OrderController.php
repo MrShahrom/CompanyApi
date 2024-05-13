@@ -28,38 +28,48 @@ class OrderController extends Controller
      */
     public function filterByDate(Request $request)
     {
-        $request->validate([
-            'from_date' => 'required|date',
-            'to_date' => 'required|date|after_or_equal:from_date',
-        ]);
-        $fromDate = $request->input('from_date');
-        $toDate = $request->input('to_date');
-        $filteredOrders = Order::whereBetween('date_of_shipment', [$fromDate, $toDate])->get();
+        try {
+            $request->validate([
+                'from_date' => 'required|date',
+                'to_date' => 'required|date|after_or_equal:from_date',
+            ]);
 
-        if ($filteredOrders->isEmpty()) {
-            return response()->json(['message' => 'Заказы с такими периодами не найден']);
+            $fromDate = $request->input('from_date');
+            $toDate = $request->input('to_date');
+            $filteredOrders = Order::whereBetween('date_of_shipment', [$fromDate, $toDate])->get();
+
+            if ($filteredOrders->isEmpty()) {
+                return response()->json(['message' => 'Заказы с такими периодами не найдены']);
+            }
+
+            return OrderResource::collection($filteredOrders);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Произошла ошибка при фильтрации заказов по дате'], 500);
         }
-
-        return OrderResource::collection($filteredOrders);
     }
+
 
     /**
      * Filter orders by units_of_measurement.
      */
     public function filterByunits(Request $request)
     {
-        $request->validate([
-            'units_of_measurement' => 'required|string',
-        ]);
+        try {
+            $request->validate([
+                'units_of_measurement' => 'required|string',
+            ]);
 
-        $units_of_measurement = $request->input('units_of_measurement');
-        $filteredorders = Order::where('units_of_measurement', 'LIKE', $units_of_measurement . '%')->get();
+            $units_of_measurement = $request->input('units_of_measurement');
+            $filteredorders = Order::where('units_of_measurement', 'LIKE', $units_of_measurement . '%')->get();
 
-        if ($filteredorders->isEmpty()) {
-            return response()->json(['message' => 'Единицы измерение с таким названием не найден']);
+            if ($filteredorders->isEmpty()) {
+                return response()->json(['message' => 'Единицы измерения с таким названием не найдены']);
+            }
+
+            return OrderResource::collection($filteredorders);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Произошла ошибка при фильтрации заказов по единицам измерения'], 500);
         }
-
-        return OrderResource::collection($filteredorders);
     }
 
     /**
@@ -67,41 +77,51 @@ class OrderController extends Controller
      */
     public function filterBynameproduct(Request $request)
     {
-        $request->validate([
-            'product_name' => 'required|string',
-        ]);
+        try {
+            $request->validate([
+                'product_name' => 'required|string',
+            ]);
 
-        $productName = $request->input('product_name');
+            $productName = $request->input('product_name');
 
-        $filteredOrders = Order::whereHas('product.type_product', function ($query) use ($productName) {
-            $query->where('product_name', 'LIKE', $productName . '%');
-        })->get();
+            $filteredOrders = Order::whereHas('product.type_product', function ($query) use ($productName) {
+                $query->where('product_name', 'LIKE', $productName . '%');
+            })->get();
 
-        if ($filteredOrders->isEmpty()) {
-            return response()->json(['message' => 'Продукт с таким названием не найден']);
+            if ($filteredOrders->isEmpty()) {
+                return response()->json(['message' => 'Продукт с таким названием не найден']);
+            }
+
+            return OrderResource::collection($filteredOrders);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Произошла ошибка при фильтрации заказов по названию продукта'], 500);
         }
-
-        return OrderResource::collection($filteredOrders);
     }
+
 
     /**
      * Filter orders by typeofsale.
      */
     public function filterTypeOfSale(Request $request)
     {
-        $request->validate([
-            'type_of_sale' => 'required|string',
-        ]);
+        try {
+            $request->validate([
+                'type_of_sale' => 'required|string',
+            ]);
 
-        $typeSale = $request->input('type_of_sale');
-        $filteredorders = Order::where('type_of_sale', 'LIKE', $typeSale . '%')->get();
+            $typeSale = $request->input('type_of_sale');
+            $filteredOrders = Order::where('type_of_sale', 'LIKE', $typeSale . '%')->get();
 
-        if ($filteredorders->isEmpty()) {
-            return response()->json(['message' => 'Тип продажи с такими не найден']);
+            if ($filteredOrders->isEmpty()) {
+                return response()->json(['message' => 'Тип продажи с такими не найден']);
+            }
+
+            return OrderResource::collection($filteredOrders);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Произошла ошибка при фильтрации заказов по типу продажи'], 500);
         }
-
-        return OrderResource::collection($filteredorders);
     }
+
 
     public function get_order_data()
     {

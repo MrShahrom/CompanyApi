@@ -77,11 +77,12 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request, Product $product)
+    public function update(UpdateRequest $request, $id)
     {
         try {
             $data = $request->validated();
-
+            // Поиск продукта по идентификатору и обновление его данных
+            $product = Product::findOrFail($id);
             // Обработка изображения
             if ($request->hasFile('image')) {
                 // Удаление предыдущего изображения, если оно существует
@@ -101,6 +102,7 @@ class ProductController extends Controller
             return response()->json(['message' => 'Ошибка при обновлении продукта'], 500);
         }
     }
+
 
     /**
      * Remove the specified resource from storage.

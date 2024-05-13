@@ -32,18 +32,28 @@ class ClientController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $data = $request->validated();
-        $client = Client::create($data);
+        try {
+            $data = $request->validated();
+            $client = Client::create($data);
 
-        return ClientResource::make($client);
+            return ClientResource::make($client);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Произошла ошибка при создании клиента'], 500);
+        }
     }
+
 
     /**
      * Display the specified resource.
      */
-    public function show(Client $client)
+    public function show($id)
     {
-        return ClientResource::make($client);
+        $client = Client::find($id);
+        if (!$client) {
+            return response()->json(['message' => $id], 404);
+        } else {
+            return ClientResource::make($client);
+        }
     }
 
     /**
@@ -59,11 +69,16 @@ class ClientController extends Controller
      */
     public function update(UpdateRequest $request, Client $client)
     {
-        $data = $request->validated();
-        $client->update($data);
+        try {
+            $data = $request->validated();
+            $client->update($data);
 
-        return ClientResource::make($client);
+            return ClientResource::make($client);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Произошла ошибка при обновлении клиента'], 500);
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.

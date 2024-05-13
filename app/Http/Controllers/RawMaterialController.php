@@ -39,11 +39,16 @@ class RawMaterialController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $data = $request->validated();
-        $rawMaterial = RawMaterial::create($data);
+        try {
+            $data = $request->validated();
+            $rawMaterial = RawMaterial::create($data);
 
-        return RawMaterialResource::make($rawMaterial);
+            return RawMaterialResource::make($rawMaterial);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Произошла ошибка при создании сырья'], 500);
+        }
     }
+
 
     /**
      * Display the specified resource.

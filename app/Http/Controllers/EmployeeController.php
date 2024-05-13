@@ -32,10 +32,14 @@ class EmployeeController extends Controller
      */
     public function store(StoreRequest $request)
     {
+        try {
         $data = $request->validated();
         $employee = Employee::create($data);
 
         return EmployeeResource::make($employee);
+        } catch(\Exception $e) {
+            return response()->json(['message' => 'Произошла ошибка при создании стоимости'], 500);
+        }
     }
 
     /**
@@ -59,10 +63,14 @@ class EmployeeController extends Controller
      */
     public function update(UpdateRequest $request, Employee $employee)
     {
+        try {
         $data = $request->validated();
         $employee->update($data);
 
         return EmployeeResource::make($employee);
+        } catch (\Exception $e){
+            return response()->json(['message' => 'Произошла ошибка при создании стоимости'], 500);
+        }
     }
 
     /**

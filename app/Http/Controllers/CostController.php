@@ -28,40 +28,43 @@ class CostController extends Controller
      */
     public function calculateCost(Request $request)
     {
-        $productId = $request->input('productId');
-        $recipes = Recipe::where('id_type_product', $productId)->get();
+        try {
+            $productId = $request->input('productId');
+            $recipes = Recipe::where('id_type_product', $productId)->get();
 
-        if ($recipes->isEmpty()) {
-            return response()->json(['error' => 'Отсутствуют рецепты для указанного типа продукта'], 404);
-        }
-
-        $totalCost = 0;
-        $totalQuantityProduced = 0;
-
-        foreach ($recipes as $recipe) {
-
-            $rawMaterial = $recipe->rawmaterial; //Получаем информацию о сырье, необходимом для производства продукта, из связанной модели RawMaterial
-
-            if ($rawMaterial) {
-                $materialCost = $rawMaterial->purchase_price * $recipe->quantity; //Найдем общую сумму материалов (сырья), использованных для этого типа продуктов
-                $totalCost += $materialCost;
-                $totalQuantityProduced += $recipe->typeproduct->quantity_produced; //Найдем количество производенный тип продукта
-            } else {
-                return response()->json(['error' => 'Отсутствует информация о сырье для рецепта'], 404);
+            if ($recipes->isEmpty()) {
+                return response()->json(['error' => 'Отсутствуют рецепты для указанного типа продукта'], 404);
             }
-        }
 
-        if ($totalQuantityProduced > 0) {
-            // Рассчитываем себестоимость общего продукта
-            $total = $totalCost * $totalQuantityProduced;
-            // Рассчитываем себестоимость одного продукта
-            $costPerProduct = $total / $totalQuantityProduced;
-        } else {
-            $costPerProduct = 0;
+            $totalCost = 0;
+            $totalQuantityProduced = 0;
+
+            foreach ($recipes as $recipe) {
+
+                $rawMaterial = $recipe->rawmaterial;
+
+                if ($rawMaterial) {
+                    $materialCost = $rawMaterial->purchase_price * $recipe->quantity;
+                    $totalCost += $materialCost;
+                    $totalQuantityProduced += $recipe->typeproduct->quantity_produced;
+                } else {
+                    return response()->json(['error' => 'Отсутствует информация о сырье для рецепта'], 404);
+                }
+            }
+
+            if ($totalQuantityProduced > 0) {
+                $total = $totalCost * $totalQuantityProduced;
+                $costPerProduct = $total / $totalQuantityProduced;
+            } else {
+                $costPerProduct = 0;
+            }
+
+            return $costPerProduct;
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Произошла ошибка при расчете себестоимости продукта'], 500);
         }
-        //Себестоимост одного продукта
-        return $costPerProduct;
     }
+
 
     public function get_cost_data()
     {
@@ -82,11 +85,16 @@ class CostController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $data = $request->validated();
-        $cost = Cost::create($data);
+        try {
+            $data = $request->validated();
+            $cost = Cost::create($data);
 
-        return CostResource::make($cost);
+            return CostResource::make($cost);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Произошла ошибка при создании стоимости'], 500);
+        }
     }
+
 
     /**
      * Display the specified resource.
@@ -115,11 +123,16 @@ class CostController extends Controller
      */
     public function update(UpdateRequest $request, Cost $cost)
     {
-        $data = $request->validated();
-        $cost->update($data);
+        try {
+            $data = $request->validated();
+            $cost->update($data);
 
-        return CostResource::make($cost);
+            return CostResource::make($cost);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Произошла ошибка при обновлении стоимости'], 500);
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.
