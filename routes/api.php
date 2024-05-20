@@ -54,6 +54,8 @@ Route::group(['middleware' => 'jwt.auth'], function () {
         Route::resource('products', ProductController::class);
         Route::resource('orders', OrderController::class);
         Route::resource('costs', CostController::class);
+        //
+        Route::post('/products/{id}', [ProductController::class, 'update']);
 
         //Фильтр по дату
         Route::post('/orders/filterByDate', [OrderController::class, 'filterByDate']);

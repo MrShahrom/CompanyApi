@@ -9,6 +9,9 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
+use Exception;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx\Rels;
 
 class ProductController extends Controller
 {
@@ -74,35 +77,48 @@ class ProductController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateRequest $request, $id)
+
+    public function update(Request $request, $id)
     {
         try {
-            $data = $request->validated();
-            // Поиск продукта по идентификатору и обновление его данных
+            // Валидация данных запроса
+            $validatedData = $request->validate([
+                'name' => 'required|string',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'id_sklad' => 'required|integer',
+                'selling_price' => 'required|numeric|regex:/^\d+(\.\d{1,4})?$/',
+                'id_type_product' => 'required|integer',
+                'quantity' => 'required|integer',
+                'status' => 'required|boolean',
+            ]);
+
+            // Извлечение продукта из базы данных
             $product = Product::findOrFail($id);
-            // Обработка изображения
+
+            // Обработка загруженного изображения
             if ($request->hasFile('image')) {
-                // Удаление предыдущего изображения, если оно существует
+                // Удаление старого изображения, если оно существует
                 if ($product->image) {
                     Storage::disk('public')->delete($product->image);
                 }
+
                 // Сохранение нового изображения
                 $imagePath = $request->file('image')->store('images', 'public');
-                $data['image'] = $imagePath;
+                $validatedData['image'] = $imagePath;
             }
 
-            $product->update($data);
+            // Обновление данных продукта
+            $product->update($validatedData);
 
             return response()->json(['message' => 'Продукт успешно обновлен'], 200);
+        } catch (ValidationException $e) {
+            Log::error('Ошибка валидации: ' . $e->getMessage());
+            return response()->json(['message' => 'Ошибка валидации', 'errors' => $e->errors()], 422);
         } catch (\Exception $e) {
             Log::error('Ошибка при обновлении продукта: ' . $e->getMessage());
             return response()->json(['message' => 'Ошибка при обновлении продукта'], 500);
         }
     }
-
 
     /**
      * Remove the specified resource from storage.
